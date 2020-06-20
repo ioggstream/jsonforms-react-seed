@@ -12,8 +12,9 @@ import createStyles from '@material-ui/core/styles/createStyles';
 import { Tabs, Tab } from '@material-ui/core';
 import logo from './logo.svg';
 import './App.css';
-import schema from './schema.json';
-import uischema from './uischema.json';
+import { safeLoad } from 'js-yaml';
+//import schema from './schema.json';
+//import uischema from './uischema.json';
 import {
   materialCells,
   materialRenderers
@@ -22,6 +23,9 @@ import { Store } from 'redux';
 import { get } from 'lodash';
 import RatingControl from './RatingControl';
 import ratingControlTester from './ratingControlTester';
+
+const yaml = require("js-yaml");
+
 
 const styles = createStyles({
   container: {
@@ -58,10 +62,10 @@ const data = {
 const getDataAsStringFromStore = (store: Store) =>
   store
     ? JSON.stringify(
-        get(store.getState(), ['jsonforms', 'core', 'data']),
-        null,
-        2
-      )
+      get(store.getState(), ['jsonforms', 'core', 'data']),
+      null,
+      2
+    )
     : '';
 
 const App = ({ store, classes }: AppProps) => {
@@ -93,6 +97,21 @@ const App = ({ store, classes }: AppProps) => {
     setDisplayDataAsString(JSON.stringify(standaloneData, null, 2));
   }, [standaloneData]);
 
+  fetch('form-1/schema.yaml')
+    .then((response) => response.text())
+    .then((text) => {
+      const schema_ = yaml.safeLoad(text);
+      console.log(schema_);
+      fetch('form-1/uischema.yaml')
+        .then((response) => response.text())
+        .then((text) => {
+          const uischema_ = safeLoad(text);
+          console.log(uischema_);
+
+        });
+    });
+  const schema = {};
+  const uischema = { "type": "foo" };
   return (
     <Fragment>
       <div className='App'>
