@@ -1,31 +1,382 @@
 {
-  "type": "object",
+  "__filemeta": {
+    "filename": "src/pages/docs/components/multiple-forms/FormsExamples.js",
+    "name": "schema"
+  },
   "properties": {
-    "name": {
-      "type": "string",
-      "minLength": 1
+    "dichiarazione": {
+      "properties": {
+        "bollo": {
+          "title": "Che tale certificato \u00e8 richiesto in bollo",
+          "type": "boolean"
+        },
+        "data": {
+          "description": "anno-mese-giorno",
+          "format": "date-time",
+          "type": "string"
+        },
+        "esenzione_altro": {
+          "type": "string"
+        },
+        "esenzione_bollo": {
+          "anyOf": [
+            {
+              "title": "Che tale certificato \u00e8 richiesto in esenzione dal bollo per uso",
+              "type": "string",
+              "enum": [
+                "Notifica atti giudiziari  (allegare cartellino professionale avvocato richiedente)",
+                "ai sensi art. 32  d.a. C.P.P.  \u2013 recupero crediti difensori d\u2019ufficio\n (allegare cartellino professionale  avvocato  richiedente)"
+              ]
+            },
+            {"type":  "string"}
+          ]
+        }
+      }
     },
-    "description": {
+    "documento_richiesto": {
+      "enum": [
+        "residenza",
+        "stato di famiglia",
+        "altro"
+      ],
       "type": "string"
     },
-    "done": {
-      "type": "boolean"
+    "documento_richiesto_altro": {
+      "maxLength": 40,
+      "type": "string"
     },
-    "due_date": {
-      "type": "string",
-      "format": "date"
+    "richiedente": {
+      "externalDocs": {
+        "url": "https://w3id.org/italia/onto/CPV"
+      },
+      "properties": {
+        "birth_place": {
+          "properties": {
+            "city": {
+              "title": "citt\u00e0",
+              "x-url": "https://w3id.org/italia/onto/CLV/City",
+              "type": "string"
+            },
+            "place": {
+              "title": "Localit\u00e0",
+              "type": "string"
+            },
+            "country": {
+              "title": "stato",
+              "x-url": "https://w3id.org/italia/onto/CLV/Country",
+              "type": "string"
+            },
+            "province": {
+              "title": "provincia",
+              "x-url": "https://w3id.org/italia/onto/CLV/Province",
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "zip_code": {
+              "title": "cap",
+              "type": "string",
+              "maxLength": 6
+            },
+            "street": {
+              "title": "via",
+              "type": "string"
+            },
+            "int": {
+              "title": "interno",
+              "type": "string"
+            },
+            "floor": {
+              "title": "piano",
+              "type": "string"
+            }
+          }
+        },
+        "date_of_birth": {
+          "title": "nato il",
+          "format": "date",
+          "type": "string"
+        },
+        "family_name": {
+          "title": "cognome",
+          "type": "string"
+        },
+        "given_name": {
+          "title": "nome",
+          "type": "string"
+        },
+        "residence": {
+          "properties": {
+            "city": {
+              "title": "citt\u00e0",
+              "x-url": "https://w3id.org/italia/onto/CLV/City",
+              "type": "string"
+            },
+            "place": {
+              "title": "Localit\u00e0",
+              "type": "string"
+            },
+            "country": {
+              "title": "stato",
+              "x-url": "https://w3id.org/italia/onto/CLV/Country",
+              "type": "string"
+            },
+            "province": {
+              "title": "provincia",
+              "x-url": "https://w3id.org/italia/onto/CLV/Province",
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "zip_code": {
+              "title": "cap",
+              "type": "string",
+              "maxLength": 6
+            },
+            "street": {
+              "title": "via",
+              "type": "string"
+            },
+            "int": {
+              "title": "interno",
+              "type": "string"
+            },
+            "floor": {
+              "title": "piano",
+              "type": "string"
+            }
+          }
+        },
+        "tax_code": {
+          "description": "Il codice fiscale.",
+          "example": "RSSMRA75L01H501A",
+          "externalDocs": {
+            "url": "https://w3id.org/italia/onto/CPV/taxCode"
+          },
+          "pattern": "/^(?:(?:[B-DF-HJ-NP-TV-Z]|[AEIOU])[AEIOU][AEIOUX]|[B-DF-HJ-NP-TV-Z]{2}[A-Z]){2}[\\dLMNP-V]{2}(?:[A-EHLMPR-T](?:[04LQ][1-9MNP-V]|[1256LMRS][\\dLMNP-V])|[DHPS][37PT][0L]|[ACELMRT][37PT][01LM])(?:[A-MZ][1-9MNP-V][\\dLMNP-V]{2}|[A-M][0L](?:[1-9MNP-V][\\dLMNP-V]|[0L][1-9MNP-V]))[A-Z]$/i",
+          "type": "string"
+        },
+        "sex": {
+          "type": "string",
+          "enum": [
+            "M",
+            "F"
+          ]
+        },
+        "citizenship": {
+          "type": "string"
+        },
+        "education_level": {
+          "type": "string",
+          "enum": [
+            "<=Elementari",
+            "Medie",
+            "Diploma",
+            "Laurea 3y",
+            "Laurea",
+            "PhD"
+          ]
+        },
+        "work": {
+          "properties": {
+            "occupato": {
+              "type": "string",
+              "enum": [
+                "Libero professionista",
+                "Impiegato",
+                "Lavoratore in Proprio",
+                "Operaio",
+                "Coadiuvante"
+              ]
+            },
+            "non_occupato": {
+              "type": "string",
+              "enum": [
+                "Casalingo",
+                "Studente",
+                "Disoccupato",
+                "Pensionato/Ritirato",
+                "Altro"
+              ]
+            }
+          }
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        }
+      }
     },
-    "rating": {
-      "type": "integer",
-      "maximum": 5
-    },
-    "recurrence": {
-      "type": "string",
-      "enum": ["Never", "Daily", "Weekly", "Monthly"]
-    },
-    "recurrence_interval": {
-      "type": "integer"
+    "soggetto": {
+      "externalDocs": {
+        "url": "https://w3id.org/italia/onto/CPV"
+      },
+      "properties": {
+        "birth_place": {
+          "properties": {
+            "city": {
+              "title": "citt\u00e0",
+              "x-url": "https://w3id.org/italia/onto/CLV/City",
+              "type": "string"
+            },
+            "place": {
+              "title": "Localit\u00e0",
+              "type": "string"
+            },
+            "country": {
+              "title": "stato",
+              "x-url": "https://w3id.org/italia/onto/CLV/Country",
+              "type": "string"
+            },
+            "province": {
+              "title": "provincia",
+              "x-url": "https://w3id.org/italia/onto/CLV/Province",
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "zip_code": {
+              "title": "cap",
+              "type": "string",
+              "maxLength": 6
+            },
+            "street": {
+              "title": "via",
+              "type": "string"
+            },
+            "int": {
+              "title": "interno",
+              "type": "string"
+            },
+            "floor": {
+              "title": "piano",
+              "type": "string"
+            }
+          }
+        },
+        "date_of_birth": {
+          "title": "nato il",
+          "format": "date",
+          "type": "string"
+        },
+        "family_name": {
+          "title": "cognome",
+          "type": "string"
+        },
+        "given_name": {
+          "title": "nome",
+          "type": "string"
+        },
+        "residence": {
+          "properties": {
+            "city": {
+              "title": "citt\u00e0",
+              "x-url": "https://w3id.org/italia/onto/CLV/City",
+              "type": "string"
+            },
+            "place": {
+              "title": "Localit\u00e0",
+              "type": "string"
+            },
+            "country": {
+              "title": "stato",
+              "x-url": "https://w3id.org/italia/onto/CLV/Country",
+              "type": "string"
+            },
+            "province": {
+              "title": "provincia",
+              "x-url": "https://w3id.org/italia/onto/CLV/Province",
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "zip_code": {
+              "title": "cap",
+              "type": "string",
+              "maxLength": 6
+            },
+            "street": {
+              "title": "via",
+              "type": "string"
+            },
+            "int": {
+              "title": "interno",
+              "type": "string"
+            },
+            "floor": {
+              "title": "piano",
+              "type": "string"
+            }
+          }
+        },
+        "tax_code": {
+          "description": "Il codice fiscale.",
+          "example": "RSSMRA75L01H501A",
+          "externalDocs": {
+            "url": "https://w3id.org/italia/onto/CPV/taxCode"
+          },
+          "pattern": "/^(?:(?:[B-DF-HJ-NP-TV-Z]|[AEIOU])[AEIOU][AEIOUX]|[B-DF-HJ-NP-TV-Z]{2}[A-Z]){2}[\\dLMNP-V]{2}(?:[A-EHLMPR-T](?:[04LQ][1-9MNP-V]|[1256LMRS][\\dLMNP-V])|[DHPS][37PT][0L]|[ACELMRT][37PT][01LM])(?:[A-MZ][1-9MNP-V][\\dLMNP-V]{2}|[A-M][0L](?:[1-9MNP-V][\\dLMNP-V]|[0L][1-9MNP-V]))[A-Z]$/i",
+          "type": "string"
+        },
+        "sex": {
+          "type": "string",
+          "enum": [
+            "M",
+            "F"
+          ]
+        },
+        "citizenship": {
+          "type": "string"
+        },
+        "education_level": {
+          "type": "string",
+          "enum": [
+            "<=Elementari",
+            "Medie",
+            "Diploma",
+            "Laurea 3y",
+            "Laurea",
+            "PhD"
+          ]
+        },
+        "work": {
+          "properties": {
+            "occupato": {
+              "type": "string",
+              "enum": [
+                "Libero professionista",
+                "Impiegato",
+                "Lavoratore in Proprio",
+                "Operaio",
+                "Coadiuvante"
+              ]
+            },
+            "non_occupato": {
+              "type": "string",
+              "enum": [
+                "Casalingo",
+                "Studente",
+                "Disoccupato",
+                "Pensionato/Ritirato",
+                "Altro"
+              ]
+            }
+          }
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        }
+      }
     }
   },
-  "required": ["name", "due_date"]
+  "type": "object"
 }
