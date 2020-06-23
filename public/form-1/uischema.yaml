@@ -5,13 +5,9 @@ elements:
   label: Test label
   scope: ""
   text: |-
-    # Ecco qui
-    una lunga descriozioe
+    # Comune di Lava di Sotto
 
-    ## di tutta 
-
-    quella roba
-
+    Richiesta documenti di Anagrafe
 - type: Group
   label: Il sottoscritto
   elements:
@@ -50,11 +46,48 @@ elements:
       scope: "#/properties/richiedente/properties/email"
     - type: Control
       scope: "#/properties/richiedente/properties/phone"
+- type: Markdown
+  scope: ""
+  text: |-
+    - a norma degli artt.33 e 35 del d.P.R. 30.05.1989, n. 223
+    - e/o degli artt. 106,107 e 108 del d.P.R. 3.11.2000 n.396
+
+    # CHIEDE
+
 - type: Group
-  label: |-
-    a norma degli artt.33 e 35 del d.P.R. 30.05.1989, n. 223 e/o
-    degli artt. 106,107 e 108 del d.P.R. 3.11.2000 n.396
-    CHIEDE
+  elements:
+  - type: Control
+    scope: >-
+      #/properties/richiedente_sottoscritto
+
+  - type: VerticalLayout
+    label: |-
+       a nome di
+    rule:
+      effect: DISABLE
+      condition:
+        scope: "#/properties/richiedente_sottoscritto"
+        schema:
+          const: true
+    elements:
+      - type: HorizontalLayout
+        elements:
+          - type: Control
+            scope: "#/properties/soggetto/properties/given_name"
+          - type: Control
+            scope: "#/properties/soggetto/properties/family_name"
+
+      - type: HorizontalLayout
+        elements:
+          - type: Control
+            label: Nato a
+            scope: "#/properties/soggetto/properties/date_of_birth"
+          - type: Control
+            scope: "#/properties/soggetto/properties/birth_place/properties/city"
+          - type: Control
+            scope: "#/properties/soggetto/properties/birth_place/properties/province"
+
+- type: Group
   elements:
     - type: HorizontalLayout
       label: Il rilascio della sottoelencata certificazione
@@ -65,26 +98,14 @@ elements:
 
       - type: Control
         scope: "#/properties/documento_richiesto_altro"
-- type: Group
-  label: |-
-     a nome di
-  elements:
-    - type: HorizontalLayout
-      elements:
-        - type: Control
-          scope: "#/properties/soggetto/properties/given_name"
-        - type: Control
-          scope: "#/properties/soggetto/properties/family_name"
+        disabled: true
+        rule:
+          effect: ENABLE
+          condition:
+            scope: "#/properties/documento_richiesto"
+          schema:
+            const: altro
 
-    - type: HorizontalLayout
-      elements:
-        - type: Control
-          label: Nato a
-          scope: "#/properties/soggetto/properties/date_of_birth"
-        - type: Control
-          scope: "#/properties/soggetto/properties/birth_place/properties/city"
-        - type: Control
-          scope: "#/properties/soggetto/properties/birth_place/properties/province"
 - type: Group
   label: |-
     consapevole che in caso di dichiarazione mendace sarà punito ai sensi del Codice Penale
