@@ -76,12 +76,20 @@ const getDataAsStringFromStore = (store: Store) =>
     )
     : '';
 
+const getErrorAsStringFromStore = (store: Store) =>
+  store
+    ? JSON.stringify(
+      get(store.getState(), ['jsonforms', 'core', 'errors']),
+      null,
+      2
+    )
+    : '';
 
 function renderQrcode(store: Store) {
   QRCode.toCanvas(document.getElementById('qrcode'),
     getDataAsStringFromStore(store)
   );
-
+  console.log("store.errors", getErrorAsStringFromStore(store));
 }
 /**
  * Convert an html element in PDF.

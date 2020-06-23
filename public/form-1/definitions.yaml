@@ -310,6 +310,10 @@ schemas:
   Person:
     externalDocs:
       url: https://w3id.org/italia/onto/CPV
+    required:
+      - given_name
+      - family_name
+      - date_of_birth
     properties:
       birth_place:
         $ref: 'definitions.yaml#/schemas/Location'

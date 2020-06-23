@@ -68,7 +68,7 @@ elements:
       condition:
         scope: "#/properties/richiedente_sottoscritto"
         schema:
-          const: true
+          const: "Per il sottoscritto"
     elements:
       - type: HorizontalLayout
         elements:
@@ -106,20 +106,25 @@ elements:
           schema:
             const: altro
 
-- type: Group
-  label: |-
-    consapevole che in caso di dichiarazione mendace sarà punito ai sensi del Codice Penale
-    secondo quanto prescritto dall'art. 76 del D.P.R. 445/2000 e che inoltre,
-    qualora dal controllo effettuato emerga la non veridicità del contenuto di taluna
+- type: Markdown
+  scope: ""
+  text: >-
+    consapevole che:
+
+    - in caso di dichiarazione mendace sarà punito ai sensi del Codice Penale
+      secondo quanto prescritto dall'art. 76 del D.P.R. 445/2000
+    - qualora dal controllo effettuato emerga la non veridicità del contenuto di taluna
     delle dichiarazioni rese, decadrà dai benefici conseguenti al provvedimento eventualmente
     emanato sulla base della dichiarazione non veritiera (art.75 del D.P.R. 445/2000),
 
-    DICHIARA
+    # DICHIARA
+
+- type: Group
+  label: |-
+    Che tale certificato è richiesto in
   elements:
     - type: Control
       scope: "#/properties/dichiarazione/properties/bollo"
-      label: |-
-        Che tale certificato è richiesto in
     - type: Group
       label: Esenzione dal bollo per uso
       rule:
@@ -131,22 +136,36 @@ elements:
       elements:
       - type: Control
         scope: "#/properties/dichiarazione/properties/esenzione_notifica_atti_giudiziari"
-        x-br: true
 
       - type: Control
         scope: "#/properties/dichiarazione/properties/esenzione_recupero_crediti_difensore_ufficio"
-        x-br: true
 
       - type: Control
         label: Indicare motivo di esenzione (Vedi tabella allegata)
         scope: "#/properties/dichiarazione/properties/esenzione_altro"
-        x-br: true
 
-- type: Group
-  label: |-
-    Allegare copia del documento di riconoscimento
+- type: Markdown
+  scope: ""
+  text: >-
+    - Allegare copia del documento di riconoscimento
 
-    *   Si rammenta che a seguito dell'entrata in vigore della legge di stabilità (L. 183/2011), dal 1° gennaio 2012, “ le Amministrazioni pubbliche e i gestori di pubblici servizi  sono tenuti ad acquisire d’ufficio le informazioni oggetto delle dichiarazioni sostitutive di cui agli artt. 46 e 47 (DPR 445/00) …..ovvero ad accettare la dichiarazione sostitutiva prodotta dall’interessato”.
-          Sulle certificazioni  rilasciate  dal Servizio Demografico ai sensi stesso art. 15 l. 183/2011, è riportano, a pena di nullità, la dicitura: "il presente certificato non può essere prodotto agli organi della pubblica amministrazione o ai privati gestori di pubblici servizi.".
+    -   Si rammenta che a seguito dell'entrata in vigore della legge di stabilità (L. 183/2011), 
+      dal 1° gennaio 2012,
 
-    ** Il certificato sarà inviato a mezzo pec con firma autografa dell’ufficiale d’anagrafe omessa, ai sensi dell’art.3 del d.lgs. n. 39/1993
+      ```
+      le Amministrazioni pubbliche e i gestori di pubblici servizi  sono tenuti 
+      ad acquisire d’ufficio le informazioni oggetto delle dichiarazioni sostitutive 
+      di cui agli artt. 46 e 47 (DPR 445/00) […]..ovvero ad accettare la dichiarazione 
+      sostitutiva prodotta dall’interessato.
+      ```
+      
+      Sulle certificazioni  rilasciate  dal Servizio Demografico ai sensi stesso art. 15 l. 183/2011, è riportano, a pena di nullità, 
+      la dicitura: 
+        
+      ```
+      il presente certificato non può essere prodotto agli organi della pubblica amministrazione
+      o ai privati gestori di pubblici servizi.
+      ```
+
+    - Il certificato sarà inviato a mezzo pec con firma autografa dell’ufficiale d’anagrafe omessa, 
+      ai sensi dell’art.3 del d.lgs. n. 39/1993

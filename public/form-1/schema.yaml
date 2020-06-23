@@ -1,4 +1,7 @@
 type: object
+required:
+    - richiedente_sottoscritto
+    - documento_richiesto
 properties:
     soggetto:
         $ref: "definitions.yaml#/schemas/Person"
@@ -6,14 +9,9 @@ properties:
         $ref: "definitions.yaml#/schemas/Person"
     richiedente_sottoscritto:
         type: string
-        oneOf:
-            - [
-                "Per il sottoscritto", true
-            ]
-            - [
-                "A nome di", false
-            ]
-        default: true
+        enum:
+        - "Per il sottoscritto"
+        - "A nome di"
     documento_richiesto:
         type: string
         enum:
@@ -24,6 +22,8 @@ properties:
         type: string
         maxLength: 40
     dichiarazione:
+        required:
+            - bollo
         properties:
             bollo:
                 type: string
