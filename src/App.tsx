@@ -135,7 +135,7 @@ const App = ({ store, classes }: AppProps) => {
   const processed = 0;
   const [displayDataAsString, setDisplayDataAsString] = useState('');
   const [standaloneData, setStandaloneData] = useState(data);
-  const getMyPDF = () => { getPDF(document.body) };
+  const getMyPDF = () => { getPDF(document.getElementById('rootform')) };
   useEffect(() => {
     const updateStringData = () => {
       const stringData = getDataAsStringFromStore(store);
@@ -162,7 +162,7 @@ const App = ({ store, classes }: AppProps) => {
           <input type="button" value="Download PDF." onClick={getMyPDF} />
         </header>
       </div>
-      <form action="" method="POST">
+      <form action="" method="POST" id="rootform">
         <Grid
           container
           justify={'center'}
@@ -170,9 +170,6 @@ const App = ({ store, classes }: AppProps) => {
           className={classes.container}
         >
           <Grid item sm={6}>
-            <Typography variant={'h3'} className={classes.title}>
-              Rendered form
-          </Typography>
             <div className={classes.demoform} id='form'>
               {store ? (
                 <Provider store={store}>
@@ -183,7 +180,9 @@ const App = ({ store, classes }: AppProps) => {
               ) : null}
             </div>
           </Grid>
-          <canvas id="qrcode"></canvas>
+        </Grid>
+        <Grid justify={'center'} sm={6}>
+          <canvas id="qrcode" />
         </Grid>
       </form>
     </Fragment>

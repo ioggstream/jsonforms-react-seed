@@ -7,7 +7,8 @@ elements:
   text: |-
     # Comune di Lava di Sotto
 
-    Richiesta documenti di Anagrafe
+    ## Richiesta certificazione anagrafica on line
+
 - type: Group
   label: Il sottoscritto
   elements:
@@ -52,19 +53,42 @@ elements:
     - a norma degli artt.33 e 35 del d.P.R. 30.05.1989, n. 223
     - e/o degli artt. 106,107 e 108 del d.P.R. 3.11.2000 n.396
 
-    # CHIEDE
+    ### Consapevole che:
+      
+    - a seguito dell'entrata in vigore della legge di stabilità (L. 183/2011), 
+      dal 1° gennaio 2012,
+
+      ```
+      le Amministrazioni pubbliche e i gestori di pubblici servizi  sono tenuti 
+      ad acquisire d’ufficio le informazioni oggetto delle dichiarazioni sostitutive 
+      di cui agli artt. 46 e 47 (DPR 445/00) […]..ovvero ad accettare la dichiarazione 
+      sostitutiva prodotta dall’interessato.
+      ```
+      
+      Sulle certificazioni  rilasciate  dal Servizio Demografico ai sensi stesso art. 15 l. 183/2011, è riportano, a pena di nullità, 
+      la dicitura: 
+        
+      ```
+      il presente certificato non può essere prodotto agli organi della pubblica amministrazione
+      o ai privati gestori di pubblici servizi.
+      ```
+
+    - il certificato sarà inviato a mezzo pec con firma autografa dell’ufficiale d’anagrafe omessa, 
+      ai sensi dell’art.3 del d.lgs. n. 39/1993
+    
+
+    # CHIEDE il rilascio della sottoelencata certificazione
 
 - type: Group
   elements:
   - type: Control
     scope: >-
       #/properties/richiedente_sottoscritto
-
   - type: VerticalLayout
     label: |-
-       a nome di
+      a nome di
     rule:
-      effect: DISABLE
+      effect: HIDE
       condition:
         scope: "#/properties/richiedente_sottoscritto"
         schema:
@@ -94,13 +118,12 @@ elements:
       elements:
       - type: Control
         scope: "#/properties/documento_richiesto"
-        x-br: true
 
       - type: Control
         scope: "#/properties/documento_richiesto_altro"
-        disabled: true
+        label: Altro documento
         rule:
-          effect: ENABLE
+          effect: SHOW
           condition:
             scope: "#/properties/documento_richiesto"
           schema:
@@ -115,12 +138,17 @@ elements:
       secondo quanto prescritto dall'art. 76 del D.P.R. 445/2000
     - qualora dal controllo effettuato emerga la non veridicità del contenuto di taluna
     delle dichiarazioni rese, decadrà dai benefici conseguenti al provvedimento eventualmente
-    emanato sulla base della dichiarazione non veritiera (art.75 del D.P.R. 445/2000),
+    emanato sulla base della dichiarazione non veritiera (art.75 del D.P.R. 445/2000)
+
+    - **I CERTIFICATI ED ESTRATTI DI NASCITA, MATRIMONIO E MORTE SONO ESENTI DA BOLLO**
 
     # DICHIARA
 
+    -  Di essere informato, ai sensi dell'art.13 del d.lgs 196/2003, che i dati raccolti saranno utilizzati per il rilascio di quanto richiesto.
+    
 - type: Group
   label: |-
+
     Che tale certificato è richiesto in
   elements:
     - type: Control
@@ -128,7 +156,7 @@ elements:
     - type: Group
       label: Esenzione dal bollo per uso
       rule:
-        effect: DISABLE
+        effect: HIDE
         condition:
           scope: "#/properties/dichiarazione/properties/bollo"
           schema:
@@ -146,26 +174,13 @@ elements:
 
 - type: Markdown
   scope: ""
-  text: >-
-    - Allegare copia del documento di riconoscimento
+  text: |-
+    # Allega
+    
+      - copia del documento di riconoscimento;
+      - l'eventuale documentazione indicata;
+  
 
-    -   Si rammenta che a seguito dell'entrata in vigore della legge di stabilità (L. 183/2011), 
-      dal 1° gennaio 2012,
 
-      ```
-      le Amministrazioni pubbliche e i gestori di pubblici servizi  sono tenuti 
-      ad acquisire d’ufficio le informazioni oggetto delle dichiarazioni sostitutive 
-      di cui agli artt. 46 e 47 (DPR 445/00) […]..ovvero ad accettare la dichiarazione 
-      sostitutiva prodotta dall’interessato.
-      ```
-      
-      Sulle certificazioni  rilasciate  dal Servizio Demografico ai sensi stesso art. 15 l. 183/2011, è riportano, a pena di nullità, 
-      la dicitura: 
-        
-      ```
-      il presente certificato non può essere prodotto agli organi della pubblica amministrazione
-      o ai privati gestori di pubblici servizi.
-      ```
-
-    - Il certificato sarà inviato a mezzo pec con firma autografa dell’ufficiale d’anagrafe omessa, 
-      ai sensi dell’art.3 del d.lgs. n. 39/1993
+    Data: _ _ _ _ _ _ _ _ _ _                        Firma leggibile: _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  
