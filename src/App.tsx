@@ -21,6 +21,13 @@ import { Store } from 'redux';
 import { get } from 'lodash';
 import RatingControl from './RatingControl';
 import ratingControlTester from './ratingControlTester';
+
+// Signature
+import ReactDOM from 'react-dom'
+import SignatureCanvas from 'react-signature-canvas'
+
+
+
 // qrcode
 const QRCode = require('qrcode')
 
@@ -30,7 +37,6 @@ const html2canvas = require("html2canvas");
 // yaml
 const yaml = require("js-yaml");
 const refParser = require("json-schema-ref-parser");
-
 
 
 const styles = createStyles({
@@ -61,10 +67,11 @@ export interface AppProps extends WithStyles<typeof styles> {
 }
 
 const data = {
-  "richiedente": {
-    "given_name": "Roberto",
-    "family_name": "Polli"
-  }
+  richiedente: {
+    given_name: "Roberto",
+    family_name: "Polli"
+  },
+  dichiarazione: {}
 };
 
 const getDataAsStringFromStore = (store: Store) =>
@@ -84,6 +91,21 @@ const getErrorAsStringFromStore = (store: Store) =>
       2
     )
     : '';
+
+const readImage = (file: File, img: any) => {
+  // Check if the file is an image.
+  if (file.type && file.type.indexOf('image') === -1) {
+    console.log('File is not an image.', file.type, file);
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.addEventListener('load', (event) => {
+    if (event.target)
+      img.src = event.target.result;
+  });
+  reader.readAsDataURL(file);
+};
 
 function renderQrcode(store: Store) {
   QRCode.toCanvas(document.getElementById('qrcode'),
@@ -130,6 +152,11 @@ function getPDF(pdf_element: any) {
   });
 };
 
+const onFileSelector = (event: any) => {
+  const fileList = event.target.files;
+  console.log(fileList);
+  readImage(fileList[0], document.getElementById("attachment-1"));
+};
 
 const App = ({ store, classes }: AppProps) => {
   const processed = 0;
@@ -157,9 +184,11 @@ const App = ({ store, classes }: AppProps) => {
     <Fragment>
       <div className='App'>
         <header className='App-header'>
-          <h1 className='App-title'>Welcome to JSON Forms with React</h1>
+          <h1 className='App-title'>Compila un form, allega i documenti e scarica il pdf</h1>
           <p className='App-intro'>Reference an URI with schema.yaml and uischema.yaml to rock.</p>
           <input type="button" value="Download PDF." onClick={getMyPDF} />
+          <input type="file" id="file-selector" multiple accept=".jpg, .jpeg, .png" onChange={onFileSelector} height="50px" />
+
         </header>
       </div>
       <form action="" method="POST" id="rootform">
@@ -178,12 +207,20 @@ const App = ({ store, classes }: AppProps) => {
                   </JsonFormsReduxContext>
                 </Provider>
               ) : null}
+              <SignatureCanvas
+                canvasProps={{ width: 500, height: 200, className: 'sigCanvas', style: { borderBlockStyle: "solid" }, }} />
+              <div className={classes.container}>
+                <canvas id="qrcode" style={{ alignItems: 'center' }} />
+                <div id="attachments">
+                  <img id="attachment-1" />
+                </div>
+              </div>
+
             </div>
           </Grid>
         </Grid>
-        <Grid justify={'center'} sm={6}>
-          <canvas id="qrcode" />
-        </Grid>
+
+
       </form>
     </Fragment>
   );

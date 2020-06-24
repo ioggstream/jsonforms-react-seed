@@ -1,8 +1,7 @@
 type: object
 required:
     - richiedente_sottoscritto
-    - documento_richiestolabel
-    - dichiarazione/bollo
+    - documento_richiesto
 properties:
     soggetto:
         $ref: "definitions.yaml#/schemas/Person"
@@ -60,6 +59,3 @@ properties:
                 type: string
                 format: date-time
                 description: anno-mese-giorno
-__filemeta:
-    filename: src/pages/docs/components/multiple-forms/FormsExamples.js
-    name: schema

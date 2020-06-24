@@ -25,7 +25,8 @@ const data = {
   richiedente: {
     given_name: "Roberto",
     family_name: "Polli"
-  }
+  },
+  dichiarazione: {}
 };
 
 const initState: JsonFormsState = {
