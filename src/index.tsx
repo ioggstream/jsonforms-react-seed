@@ -15,7 +15,6 @@ import MarkdownControl from './MarkdownControl';
 import markdownControlTester from './markdownControlTester';
 
 import { devToolsEnhancer } from 'redux-devtools-extension';
-import { safeLoad } from 'js-yaml';
 const yaml = require("js-yaml");
 const refParser = require("json-schema-ref-parser");
 

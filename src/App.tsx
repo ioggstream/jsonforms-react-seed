@@ -1,29 +1,17 @@
 import React, { Fragment, useState, useEffect, useCallback } from 'react';
 import {
-  JsonForms,
   JsonFormsDispatch,
   JsonFormsReduxContext
 } from '@jsonforms/react';
 import { Provider } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
 import createStyles from '@material-ui/core/styles/createStyles';
-import { Tabs, Tab } from '@material-ui/core';
-import logo from './logo.svg';
 import './App.css';
-import { safeLoad } from 'js-yaml';
-import {
-  materialCells,
-  materialRenderers
-} from '@jsonforms/material-renderers';
 import { Store } from 'redux';
 import { get } from 'lodash';
-import RatingControl from './RatingControl';
-import ratingControlTester from './ratingControlTester';
 
 // Signature
-import ReactDOM from 'react-dom'
 import SignatureCanvas from 'react-signature-canvas'
 
 
@@ -34,9 +22,6 @@ const QRCode = require('qrcode')
 // pdf
 const jsPDF = require("jspdf");
 const html2canvas = require("html2canvas");
-// yaml
-const yaml = require("js-yaml");
-const refParser = require("json-schema-ref-parser");
 
 
 const styles = createStyles({
@@ -66,13 +51,7 @@ export interface AppProps extends WithStyles<typeof styles> {
   store: Store;
 }
 
-const data = {
-  richiedente: {
-    given_name: "Roberto",
-    family_name: "Polli"
-  },
-  dichiarazione: {}
-};
+const data = {};
 
 const getDataAsStringFromStore = (store: Store) =>
   store
