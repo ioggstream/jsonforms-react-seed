@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect, useCallback } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import {
   JsonFormsDispatch,
   JsonFormsReduxContext
@@ -138,10 +138,12 @@ const onFileSelector = (event: any) => {
 };
 
 const App = ({ store, classes }: AppProps) => {
-  const processed = 0;
   const [displayDataAsString, setDisplayDataAsString] = useState('');
   const [standaloneData, setStandaloneData] = useState(data);
   const getMyPDF = () => { getPDF(document.getElementById('rootform')) };
+  console.log(displayDataAsString);
+  console.log(setStandaloneData);
+
   useEffect(() => {
     const updateStringData = () => {
       const stringData = getDataAsStringFromStore(store);
@@ -190,15 +192,15 @@ const App = ({ store, classes }: AppProps) => {
                 canvasProps={{ width: 500, height: 200, className: 'sigCanvas', style: { borderBlockStyle: "solid" }, }} />
               <div className={classes.container}>
                 <canvas id="qrcode" style={{ alignItems: 'center' }} />
-                <div id="attachments">
-                  <img id="attachment-1" />
-                </div>
               </div>
 
             </div>
           </Grid>
         </Grid>
 
+        <div id="attachments">
+          <img alt="Attachment 1" id="attachment-1" />
+        </div>
 
       </form>
     </Fragment>
