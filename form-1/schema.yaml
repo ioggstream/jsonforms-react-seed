@@ -1,0 +1,61 @@
+type: object
+required:
+    - richiedente_sottoscritto
+    - documento_richiesto
+properties:
+    soggetto:
+        $ref: "definitions.yaml#/schemas/Person"
+    richiedente:
+        $ref: "definitions.yaml#/schemas/Person"
+    richiedente_sottoscritto:
+        type: string
+        enum:
+        - "Per il sottoscritto"
+        - "A nome di"
+        default: "Per il sottoscritto"
+    documento_richiesto:
+        type: string
+        enum:
+        - "residenza"
+        - "stato di famiglia"
+        - "altro"
+    documento_richiesto_altro:
+        type: string
+        maxLength: 40
+    dichiarazione:
+        required:
+            - bollo
+        properties:
+            bollo:
+                type: string
+                enum:
+                    - bollo
+                    - esenzione da bollo
+            esenzione_notifica_atti_giudiziari:
+                type: boolean
+                title: |-
+                    Notifica atti giudiziari  (allegare cartellino professionale avvocato richiedente)
+            esenzione_recupero_crediti_difensore_ufficio:
+                type: boolean
+                title: |-
+                   ai sensi art. 32  d.a. C.P.P.  – recupero crediti difensori d’ufficio
+                    (allegare cartellino professionale  avvocato  richiedente)
+            esenzione_altro:
+                type: string
+                enum:
+                -    ONLUS - art. 27 bis, tabella allegato B)  DPR 642/1972
+                -    SOCIETA' SPORTIVE - art. 8 bis, tabella allegato B)  DPR 642/1972
+                -    PROCESSUALE (certificati da produrre nel procedimento) - art. 18 DPR 30.5.2002, n. 115 e Circ. Agenzia delle entrate, 14.8.2002, n. 70/E
+                -    C.T.U. nominato dal Tribunale o dal Pubblico ministero; CURATORE FALLIMENTARE - art. 16, tabella allegato B) DPR 642/1972
+                -    INTERDIZIONE, INABILITAZIONE, AMMINISTRAZIONE DI SOSTEGNO (certificati da produrre nel procedimento) - art. 13, tabella allegato B) DPR 642/72 e Circ. MIN. GIUST. prot. M-DG. DAG del 5 febbraio 2007.14803.U
+                -    ADOZIONE, AFFIDAMENTO, TUTELA MINORI - art. 13, tabella allegato B)  DPR 642/1972 e art. 82 L. 184/1983
+                -    SEPARAZIONE/DIVORZIO ai sensi dell'art. 19 della legge 74/1987
+                -    VARIAZIONE TOPONOMASTICA STRADALE E NUMERAZIONE CIVICA ai sensi dell'art. 16 co. 8, della L. 537/1993
+                -    PENSIONE ESTERA - art. 9, tabella allegato B)  DPR 642/1972
+                -    SCAMBIO DI ATTI E DOCUMENTI FRA PP.AA. - art. 16, tabella allegato B) DPR 642/1972
+                -    ALTRO MOTIVO DI ESENZIONE
+
+            data:
+                type: string
+                format: date-time
+                description: anno-mese-giorno

@@ -1,0 +1,186 @@
+label: Richiesta certificazione anagrafica online
+type: VerticalLayout
+elements:
+- type: Markdown
+  label: Test label
+  scope: ""
+  text: |-
+    # Comune di Lava di Sotto
+
+    ## Richiesta certificazione anagrafica on line
+
+- type: Group
+  label: Il sottoscritto
+  elements:
+  - type: HorizontalLayout
+    elements:
+    - type: Control
+      scope: "#/properties/richiedente/properties/given_name"
+    - type: Control
+      scope: "#/properties/richiedente/properties/family_name"
+
+  - type: HorizontalLayout
+    elements:
+    - type: Control
+      label: Nato il
+      scope: "#/properties/richiedente/properties/date_of_birth"
+    - type: Control
+      label: a
+      scope: "#/properties/richiedente/properties/birth_place/properties/city"
+    - type: Control
+      scope: "#/properties/richiedente/properties/birth_place/properties/province"
+
+  - type: HorizontalLayout
+    label: Residente in
+    elements:
+    - type: Control
+      label: Via
+      scope: "#/properties/richiedente/properties/residence/properties/street"
+    - type: Control
+      scope: "#/properties/richiedente/properties/residence/properties/city"
+    - type: Control
+      scope: "#/properties/richiedente/properties/residence/properties/province"
+
+  - type: HorizontalLayout
+    elements:
+    - type: Control
+      scope: "#/properties/richiedente/properties/email"
+    - type: Control
+      scope: "#/properties/richiedente/properties/phone"
+- type: Markdown
+  scope: ""
+  text: |-
+    - a norma degli artt.33 e 35 del d.P.R. 30.05.1989, n. 223
+    - e/o degli artt. 106,107 e 108 del d.P.R. 3.11.2000 n.396
+
+    ### Consapevole che:
+      
+    - a seguito dell'entrata in vigore della legge di stabilità (L. 183/2011), 
+      dal 1° gennaio 2012,
+
+      ```
+      le Amministrazioni pubbliche e i gestori di pubblici servizi  sono tenuti 
+      ad acquisire d’ufficio le informazioni oggetto delle dichiarazioni sostitutive 
+      di cui agli artt. 46 e 47 (DPR 445/00) […]..ovvero ad accettare la dichiarazione 
+      sostitutiva prodotta dall’interessato.
+      ```
+      
+      Sulle certificazioni  rilasciate  dal Servizio Demografico ai sensi stesso art. 15 l. 183/2011, è riportano, a pena di nullità, 
+      la dicitura: 
+        
+      ```
+      il presente certificato non può essere prodotto agli organi della pubblica amministrazione
+      o ai privati gestori di pubblici servizi.
+      ```
+
+    - il certificato sarà inviato a mezzo pec con firma autografa dell’ufficiale d’anagrafe omessa, 
+      ai sensi dell’art.3 del d.lgs. n. 39/1993
+    
+
+    # CHIEDE il rilascio della sottoelencata certificazione
+
+- type: Group
+  elements:
+  - type: Control
+    scope: >-
+      #/properties/richiedente_sottoscritto
+  - type: VerticalLayout
+    label: |-
+      a nome di
+    rule:
+      effect: HIDE
+      condition:
+        scope: "#/properties/richiedente_sottoscritto"
+        schema:
+          const: "Per il sottoscritto"
+    elements:
+      - type: HorizontalLayout
+        elements:
+          - type: Control
+            scope: "#/properties/soggetto/properties/given_name"
+          - type: Control
+            scope: "#/properties/soggetto/properties/family_name"
+
+      - type: HorizontalLayout
+        elements:
+          - type: Control
+            label: Nato a
+            scope: "#/properties/soggetto/properties/date_of_birth"
+          - type: Control
+            scope: "#/properties/soggetto/properties/birth_place/properties/city"
+          - type: Control
+            scope: "#/properties/soggetto/properties/birth_place/properties/province"
+
+- type: Group
+  elements:
+    - type: HorizontalLayout
+      label: Il rilascio della sottoelencata certificazione
+      elements:
+      - type: Control
+        scope: "#/properties/documento_richiesto"
+
+      - type: Control
+        scope: "#/properties/documento_richiesto_altro"
+        label: Altro documento
+        rule:
+          effect: SHOW
+          condition:
+            scope: "#/properties/documento_richiesto"
+          schema:
+            const: altro
+
+- type: Markdown
+  scope: ""
+  text: >-
+    consapevole che:
+
+    - in caso di dichiarazione mendace sarà punito ai sensi del Codice Penale
+      secondo quanto prescritto dall'art. 76 del D.P.R. 445/2000
+    - qualora dal controllo effettuato emerga la non veridicità del contenuto di taluna
+    delle dichiarazioni rese, decadrà dai benefici conseguenti al provvedimento eventualmente
+    emanato sulla base della dichiarazione non veritiera (art.75 del D.P.R. 445/2000)
+
+    - **I CERTIFICATI ED ESTRATTI DI NASCITA, MATRIMONIO E MORTE SONO ESENTI DA BOLLO**
+
+    # DICHIARA
+
+    -  Di essere informato, ai sensi dell'art.13 del d.lgs 196/2003, che i dati raccolti saranno utilizzati per il rilascio di quanto richiesto.
+    
+- type: Group
+  label: |-
+
+    Che tale certificato è richiesto in
+  elements:
+    - type: Control
+      scope: "#/properties/dichiarazione/properties/bollo"
+    - type: Group
+      label: Esenzione dal bollo per uso
+      rule:
+        effect: HIDE
+        condition:
+          scope: "#/properties/dichiarazione/properties/bollo"
+          schema:
+            const: "bollo"
+      elements:
+      - type: Control
+        scope: "#/properties/dichiarazione/properties/esenzione_notifica_atti_giudiziari"
+
+      - type: Control
+        scope: "#/properties/dichiarazione/properties/esenzione_recupero_crediti_difensore_ufficio"
+
+      - type: Control
+        label: Indicare motivo di esenzione (Vedi tabella allegata)
+        scope: "#/properties/dichiarazione/properties/esenzione_altro"
+
+- type: Markdown
+  scope: ""
+  text: |-
+    # Allega
+    
+      - copia del documento di riconoscimento;
+      - l'eventuale documentazione indicata;
+  
+
+
+    Data: _ _ _ _ _ _ _ _ _ _                        Firma leggibile: _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  
