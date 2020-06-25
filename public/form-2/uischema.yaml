@@ -1,0 +1,87 @@
+label: Richiesta rimborso quota laboratori opzionali
+type: VerticalLayout
+elements:
+- type: Markdown
+  label: Test label
+  scope: ""
+  text: |-
+    # Richiesta rimborso quota laboratori opzionali
+
+    ## Al Dirigente Scolastico dell'I.C. Franti
+- type: Group
+  label: Il sottoscritto
+  elements:
+  - type: HorizontalLayout
+    elements:
+    - type: Control
+      scope: "#/properties/richiedente/properties/given_name"
+    - type: Control
+      scope: "#/properties/richiedente/properties/family_name"
+
+  - type: HorizontalLayout
+    elements:
+    - type: Control
+      label: Nato il
+      scope: "#/properties/richiedente/properties/date_of_birth"
+    - type: Control
+      label: a
+      scope: "#/properties/richiedente/properties/birth_place/properties/city"
+    - type: Control
+      scope: "#/properties/richiedente/properties/birth_place/properties/province"
+
+  - type: HorizontalLayout
+    label: Residente in
+    elements:
+    - type: Control
+      label: Via
+      scope: "#/properties/richiedente/properties/residence/properties/street"
+    - type: Control
+      scope: "#/properties/richiedente/properties/residence/properties/city"
+    - type: Control
+      scope: "#/properties/richiedente/properties/residence/properties/province"
+
+  - type: HorizontalLayout
+    elements:
+    - type: Control
+      scope: "#/properties/richiedente/properties/taxCode"
+- type: Group
+  label: Genitore dell'alunno
+  elements:
+    - type: HorizontalLayout
+      elements:
+      - type: Control
+        scope: "#/properties/alunno/properties/given_name"
+      - type: Control
+        scope: "#/properties/alunno/properties/family_name"
+    - type: HorizontalLayout
+      elements:
+      - type: Control
+        scope: "#/properties/classe/properties/classe"
+      - type: Control
+        scope: "#/properties/classe/properties/tipo_scuola"
+      
+- type: Markdown
+  scope: ""
+  text: |-
+    ## Chiede
+
+    Il rimborso dell'importo in calce con accredito sul conto corrente intestato al sottoscritto/a.
+
+- type: Group
+  elements:
+    - type: HorizontalLayout
+      label: Il rilascio della sottoelencata certificazione
+      elements:
+      - type: Control
+        label: Importo in Euro
+        scope: "#/properties/richiesta/properties/importo/properties/amount"
+      - type: Control
+        scope: "#/properties/richiesta/properties/iban"
+
+- type: Markdown
+  scope: ""
+  text: |-
+  
+
+    Data: _ _ _ _ _ _ _ _ _ _                        Firma leggibile: _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  

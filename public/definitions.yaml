@@ -208,6 +208,7 @@ schemas:
     example: EUR
     pattern: ^[A-Z]{3,3}$
     type: string
+    default: EUR
   Latitude:
     description: |-
       Latitude of a point expressed in:
@@ -310,6 +311,10 @@ schemas:
   Person:
     externalDocs:
       url: https://w3id.org/italia/onto/CPV
+    required:
+    - given_name
+    - family_name
+    - date_of_birth
     properties:
       birth_place:
         $ref: 'definitions.yaml#/schemas/Location'

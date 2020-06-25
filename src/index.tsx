@@ -25,6 +25,7 @@ const data = {
     given_name: "Roberto",
     family_name: "Polli"
   },
+  soggetto: {},
   dichiarazione: {}
 };
 

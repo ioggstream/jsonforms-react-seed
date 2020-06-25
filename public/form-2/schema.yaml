@@ -1,0 +1,35 @@
+type: object
+required:
+    - richiedente
+    - documento_richiesto
+    - classe
+properties:
+    richiedente:
+        $ref: "definitions.yaml#/schemas/Person"
+    alunno:
+        $ref: "definitions.yaml#/schemas/Person"
+    classe:
+        required:
+            - classe
+            - tipo_scuola
+        properties:
+            classe:
+                type: string
+                title: "Sezione / Classe"
+            tipo_scuola:
+                type: string
+                enum:
+                    - infanzia
+                    - primaria
+                    - secondaria di 1o grado
+    richiesta:
+        required:
+        - importo
+        - iban
+        properties:
+            importo:
+                $ref: "definitions.yaml#/schemas/Money"
+            iban:
+                type: string
+                description: "Iban"
+                
