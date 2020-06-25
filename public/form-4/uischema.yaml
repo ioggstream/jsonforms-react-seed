@@ -1,0 +1,183 @@
+#
+# Basata su https://www.lavoro.gov.it/strumenti-e-servizi/Modulistica/Documents/Accesso%20ai%20documenti%20amministrativi/Modello-istanza-241.pdf
+#
+label: Richiesta certificazione anagrafica online
+type: VerticalLayout
+elements:
+- type: Markdown
+  label: Test label
+  scope: ""
+  text: |-
+    # RICHIESTA DI ACCESSO AI DOCUMENTI AMMINISTRATIVI
+
+    ## ai sensi di ...
+
+    Note: Ai sensi dell’art.38 del D.P.R. del 28.12.2000, n.445 la dichiarazione è sottoscritta dal legale rappresentante.
+    
+    Il modulo deve essere obbligatoriamente compilato in modalità digitale cliccando sugli appositi spazi e successivamente inviato all’indirizzo di
+    posta elettronica o PEC dell’ufficio competente.
+
+- type: Group
+  label: Destinatario
+  elements:
+    - type: Control
+      scope: "#/properties/destinatario"
+
+- type: Group
+  label: Il sottoscritto
+  elements:
+  - type: HorizontalLayout
+    elements:
+    - type: Control
+      scope: "#/properties/richiedente/properties/given_name"
+    - type: Control
+      scope: "#/properties/richiedente/properties/family_name"
+
+  - type: HorizontalLayout
+    elements:
+    - type: Control
+      label: Nato il
+      scope: "#/properties/richiedente/properties/date_of_birth"
+    - type: Control
+      label: a
+      scope: "#/properties/richiedente/properties/birth_place/properties/city"
+    - type: Control
+      scope: "#/properties/richiedente/properties/birth_place/properties/province"
+
+  - type: HorizontalLayout
+    label: Residente in
+    elements:
+    - type: Control
+      label: Via
+      scope: "#/properties/richiedente/properties/residence/properties/street"
+    - type: Control
+      scope: "#/properties/richiedente/properties/residence/properties/city"
+    - type: Control
+      scope: "#/properties/richiedente/properties/residence/properties/province"
+
+  - type: HorizontalLayout
+    elements:
+    - type: Control
+      scope: "#/properties/richiedente/properties/email"
+    - type: Control
+      scope: "#/properties/richiedente/properties/phone"
+
+- type: Group
+  label: documento
+  elements:  
+  - type: HorizontalLayout
+    elements:
+    - type: Control
+      scope: "#/properties/documento_identita/properties/tipo"
+    - type: Control
+      scope: "#/properties/documento_identita/properties/numero"
+  - type: HorizontalLayout
+    elements:  
+    - type: Control
+      scope: "#/properties/documento_identita/properties/rilasciato_il"
+    - type: Control
+      scope: "#/properties/documento_identita/properties/rilasciato_da"
+
+      
+- type: Markdown
+  scope: ""
+  text: |-
+    # bla
+    
+- type: VerticalLayout
+  elements:
+  - type: Control
+    scope: >-
+      #/properties/richiedente_sottoscritto
+  - type: Group
+    label: |-
+      in rappresentanza di (ditta, società, cooperativa, consorzio, ente)
+    rule:
+      effect: HIDE
+      condition:
+        scope: "#/properties/richiedente_sottoscritto"
+        schema:
+          const: "Per il sottoscritto"
+    elements:
+      - type: HorizontalLayout
+        elements:
+          - type: Control
+            scope: "#/properties/soggetto/properties/given_name"
+          - type: Control
+            scope: "#/properties/soggetto/properties/family_name"
+
+      - type: HorizontalLayout
+        elements:
+          - type: Control
+            label: Nato a
+            scope: "#/properties/soggetto/properties/date_of_birth"
+          - type: Control
+            scope: "#/properties/soggetto/properties/birth_place/properties/city"
+          - type: Control
+            scope: "#/properties/soggetto/properties/birth_place/properties/province"
+      - type: Group
+        label: Residente in
+        elements:
+        - type: Control
+          label: Via
+          scope: "#/properties/richiedente/properties/residence/properties/street"
+        - type: Control
+          scope: "#/properties/richiedente/properties/residence/properties/city"
+        - type: Control
+          scope: "#/properties/richiedente/properties/residence/properties/province"
+   
+- type: Markdown
+  scope: ""
+  text: >-
+    # CHIEDE
+
+    per i  seguenti documenti: (specificare ove possibile dettagliatamente i documenti e gli atti sui quali si intende
+      esercitare l’accesso specificando ogni elemento disponibile per l’individuazione del documento/atto)
+
+- type: Control
+  scope: "#/properties/tipo_richiesta"
+  
+- type: Control
+  scope: "#/properties/documenti_richiesti"
+
+- type: Markdown
+  scope: ""
+  text: >-
+    # DICHIARA
+
+    in relazione a quanto richiesto di avere o rappresentare un interesse diretto, concreto e attuale per
+    la tutela della seguente situazione giuridicamente rilevante
+
+- type: Control
+  scope: "#/properties/richiesta_interesse"
+
+- type: Markdown
+  scope: ""
+  text: |-
+
+    Dichiaro di essere informato/a, ai sensi e per gli effetti di cui all’art. 13 del D. Lgs. 196/2003 e s.m.i., che i dati personali, di
+    cui alla presente istanza, sono richiesti obbligatoriamente ai fini del procedimento. Gli stessi, trattati anche con strumenti
+    informatici, non saranno diffusi ma potranno essere comunicati soltanto a soggetti pubblici interessati al procedimento,
+    nonché agli altri soggetti, in conformità alle vigenti disposizioni in materia di accesso ai dati. L’interessato potrà
+    esercitare i diritti di cui all’ art. 7 del D. Lgs 196/20
+
+
+- type: Markdown
+  scope: ""
+  text: |-
+    # Allega
+    
+      - copia del documento di riconoscimento;
+      - l'eventuale documentazione indicata;
+
+      Si allega alla presente la somma di euro in marche da bollo, quale rimborso del costo di 
+      riproduzione per n. fogli (art. 25, legge 241/90)
+  
+      La presa visione dei documenti è gratuita. Il rilascio di copie dei documenti è subordinato 
+      al pagamento di € 0,26 in marche da bollo ogni
+
+      due facciate riprodotte (€ 0,26 per il rilascio da una a due facciate; € 0,52 da tre a quattro; ecc.)
+
+
+    Data: _ _ _ _ _ _ _ _ _ _                        Firma leggibile: _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  
