@@ -15,28 +15,23 @@ properties:
         type: string
         enum:
             - di prendere visione
-            - rilascio in copia
+            - rilascio in copia semplice
+            - conforme all'originale (soggetta a bollo)
     documento_identita:
         $ref: "definitions.yaml#/schemas/IdentityDocument"
     soggetto:
-        $ref: "definitions.yaml#/schemas/Person"
+        anyOf:
+        - $ref: "definitions.yaml#/schemas/Person"
+        - type: string
     richiedente:
         $ref: "definitions.yaml#/schemas/Person"
-    richiedente_sottoscritto:
+    richiedente_qualita:
         type: string
         enum:
-        - "Per il sottoscritto"
-        - "A nome di"
-        default: "Per il sottoscritto"
-    documento_richiesto:
-        type: string
-        enum:
-        - "residenza"
-        - "stato di famiglia"
-        - "altro"
-    documento_richiesto_altro:
-        type: string
-        maxLength: 40
+        - diretto interessato
+        - delegato
+        - legale rappresentante
+        default: diretto interessato
     dichiarazione:
         required:
             - bollo
