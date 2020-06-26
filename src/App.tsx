@@ -165,9 +165,9 @@ const App = ({ store, classes }: AppProps) => {
       <div className='App'>
         <header className='App-header'>
           <h1 className='App-title'>Compila un form, allega i documenti e scarica il pdf</h1>
-          <p className='App-intro'>Reference an URI with schema.yaml and uischema.yaml to rock.</p>
           <a href="?q=form-1/" >Anagrafe del comune di Bugliano</a><br />
           <a href="?q=form-2/" >Istituto Comprensivo Franti</a><br />
+          <a href="?q=form-3/" >Ufficio elettorale comune di Bugliano</a><br />
 
           <input type="button" value="Download PDF." onClick={getMyPDF} />
 

@@ -35,11 +35,21 @@ const p = new URLSearchParams(window.location.search).get("q") || "form-3";
 const schema_url = p + '/schema.yaml'
 const uischema_url = p + '/uischema.yaml'
 
-const fetchYaml = async (url: string) => {
+const fetchYaml = async (url: string, dereference: boolean = false) => {
   const text = await (await fetch(url)).text();
   const y = yaml.safeLoad(text);
   console.debug(url, y);
-  return y;
+
+  if (!dereference)
+    return y;
+
+  try {
+    const schema = await refParser.dereference(y);
+    return schema;
+  } catch (err) {
+    console.error("Cannot dereference", err);
+    throw err;
+  }
 }
 
 fetchYaml(schema_url)
@@ -50,7 +60,7 @@ fetchYaml(schema_url)
         throw err;
       }
       console.log(schema);
-      fetchYaml(uischema_url)
+      fetchYaml(uischema_url, true)
         .then((uischema) => {
           const data = uischema._meta?.data || {};
           store.dispatch(Actions.init(data, schema, uischema));

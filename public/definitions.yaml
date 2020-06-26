@@ -268,16 +268,17 @@ schemas:
       place:
         title: Località
         type: string
-      country:
-        title: stato
-        x-url: https://w3id.org/italia/onto/CLV/Country
-        type: string
       province:
         title: provincia
         x-url: https://w3id.org/italia/onto/CLV/Province
         type: string
       region:
+        title: regione
         type: string
+      country:
+        title: stato
+        x-url: https://w3id.org/italia/onto/CLV/Country
+        type: string  
       zip_code:
         title: cap
         type: string
@@ -340,28 +341,30 @@ schemas:
     - family_name
     - date_of_birth
     properties:
-      birth_place:
-        $ref: 'definitions.yaml#/schemas/Location'
+      given_name:
+        title: nome
+        type: string  
+      family_name:
+        title: cognome
+        type: string
       date_of_birth:
         title: nato il
         format: date
         type: string
-      family_name:
-        title: cognome
-        type: string
-      given_name:
-        title: nome
-        type: string
+      birth_place:
+        $ref: 'definitions.yaml#/schemas/BirthPlace'
       residence:
-        $ref: 'definitions.yaml#/schemas/Location'
+        $ref: 'definitions.yaml#/schemas/Residence'
       tax_code:
         $ref: 'definitions.yaml#/schemas/TaxCode'
       sex:
+        title: sesso
         type: string
         enum:
           - M
           - F
       citizenship:
+        title: cittadinanza
         type: string
       education_level:
         $ref: 'definitions.yaml#/schemas/EducationLevel'
@@ -450,9 +453,60 @@ schemas:
     type: object
   TaxCode:
     description: Il codice fiscale.
+    title: codice fiscale
     example: RSSMRA75L01H501A
     externalDocs:
       url: https://w3id.org/italia/onto/CPV/taxCode
     pattern: /^(?:(?:[B-DF-HJ-NP-TV-Z]|[AEIOU])[AEIOU][AEIOUX]|[B-DF-HJ-NP-TV-Z]{2}[A-Z]){2}[\dLMNP-V]{2}(?:[A-EHLMPR-T](?:[04LQ][1-9MNP-V]|[1256LMRS][\dLMNP-V])|[DHPS][37PT][0L]|[ACELMRT][37PT][01LM])(?:[A-MZ][1-9MNP-V][\dLMNP-V]{2}|[A-M][0L](?:[1-9MNP-V][\dLMNP-V]|[0L][1-9MNP-V]))[A-Z]$/i
     type: string
 
+  BirthPlace:
+    title: Luogo di nascita
+    required:
+      - city
+      - province
+    properties:
+      city:
+        title: città
+        x-url: https://w3id.org/italia/onto/CLV/City
+        type: string
+      place:
+        title: Località
+        type: string
+      province:
+        title: provincia
+        x-url: https://w3id.org/italia/onto/CLV/Province
+        type: string
+      country:
+        title: stato
+        x-url: https://w3id.org/italia/onto/CLV/Country
+        type: string
+  Residence:
+    title: Residenza
+    required:
+      - city
+      - province
+    properties:
+      street:
+        title: via
+        type: string
+      zip_code:
+        title: cap
+        type: string
+        maxLength: 6  
+      city:
+        title: città
+        x-url: https://w3id.org/italia/onto/CLV/City
+        type: string
+      place:
+        title: Località
+        type: string
+      province:
+        title: provincia
+        x-url: https://w3id.org/italia/onto/CLV/Province
+        type: string
+      country:
+        title: stato
+        x-url: https://w3id.org/italia/onto/CLV/Country
+        type: string
+  
