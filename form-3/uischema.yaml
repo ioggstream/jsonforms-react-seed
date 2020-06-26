@@ -1,28 +1,19 @@
 #
-# Basato su http://www.comune.latina.it/wp-content/uploads/2014/03/Modello-Richiesta-accesso-atti-2019-edilizia-pubblica.pdf
+# http://www.comune.latina.it/wp-content/uploads/2015/08/75461.pdf
 #
-label: Richiesta di accesso a documenti amministrativi
+label: Richiesta di iscrizione all'albo degli scrutatori
 type: VerticalLayout
 elements:
 - type: Markdown
   label: Test label
   scope: ""
   text: |-
-    # RICHIESTA DI ACCESSO AI DOCUMENTI AMMINISTRATIVI
+    # RICHIESTA DI ISCRIZIONE ALL'ALBO DEGLI SCRUTATORI
 
-    ## (Legge 241 del 7.8.1990 e successive modifiche e integrazioni - D.P.R. 184 del 12-4-2006)
 
-    
-    - L’Amministrazione, se individua soggetti controinteressati, di cui all'articolo 22, comma 1, lettera c), della legge 7 agosto1990, n. 241, darà comunicazione della
-      richiesta agli stessi, mediante invio di copia con raccomandata con avviso di ricevimento, o per via telematica per coloro che abbiano consentito tale forma di
-      comunicazione. Entro dieci giorni dalla ricezione di detta comunicazione, i controinteressati possono presentare una motivata opposizione, anche per via telematica,
-      alla richiesta di accesso. Decorso tale termine, la pubblica amministrazione provvede sulla richiesta, accertata la ricezione della comunicazione di cui sopra.
-    - Per quanto riguarda i diritti degli interessati si fa riferimento a quanto previsto dal Titolo II del D. Lgs. 196/2003.
-    - La copia conforme è sempre soggetta all’imposta di bollo, tranne i casi di esenzione previsti dalla tab. B del D.P.R. 642/1972 che saranno dichiarati e valutati in fase di
-    autenticazione.
-    - Il rilascio di copia semplice o copia autenticata è subordinata al pagamento del costo di riproduzione (art. 25 legge 241/90).
+
 - type: Group
-  label: Destinatario
+  label: Ente destinatario
   elements:
     - type: Control
       scope: "#/properties/destinatario"
@@ -30,7 +21,10 @@ elements:
 - type: Markdown
   scope: ""
   text: |-
-    Dichiarazioni sostitutive rese ai sensi degli art. 46 e 47 del D.P.R. n. 445/2000
+    ### Dichiarazioni sostitutive rese ai sensi degli art. 46 e 47 del D.P.R. n. 445/2000
+
+    Consapevole:
+    - delle sanzioni previste dall’articolo 76 del D.P.R. n. 445/2000
 
 - type: Group
   label: Il sottoscritto
@@ -57,7 +51,7 @@ elements:
     label: Residente in
     elements:
     - type: Control
-      label: Via
+      label: Residente in via/piazza
       scope: "#/properties/richiedente/properties/residence/properties/street"
     - type: Control
       scope: "#/properties/richiedente/properties/residence/properties/city"
@@ -71,170 +65,57 @@ elements:
     - type: Control
       scope: "#/properties/richiedente/properties/phone"
 
-- type: Group
-  label: documento
-  elements:  
-  - type: HorizontalLayout
-    elements:
-    - type: Control
-      scope: "#/properties/documento_identita/properties/tipo"
-    - type: Control
-      scope: "#/properties/documento_identita/properties/numero"
-  - type: HorizontalLayout
-    elements:  
-    - type: Control
-      scope: "#/properties/documento_identita/properties/rilasciato_il"
-    - type: Control
-      scope: "#/properties/documento_identita/properties/rilasciato_da"
-
-      
-- type: Markdown
-  scope: ""
-  text: |-
-    # bla
-    
-- type: VerticalLayout
-  elements:
-  - type: Control
-    scope: >-
-      #/properties/richiedente_qualita
-  - type: Group
-    label: |-
-      in rappresentanza di (ditta, società, cooperativa, consorzio, ente)
-    rule:
-      effect: HIDE
-      condition:
-        scope: "#/properties/richiedente_qualita"
-        schema:
-          enum:
-            - diretto interessato
-            - delegato
-    elements:
-      - type: Control
-        scope: "#/properties/soggetto/properties/given_name"
-
-  - type: Group
-    label: |-
-      delegato da
-    rule:
-      effect: HIDE
-      condition:
-        scope: "#/properties/richiedente_qualita"
-        schema:
-          enum:
-            - diretto interessato
-            - rappresentante legale 
-    elements:
-      - type: HorizontalLayout
-        elements:
-          - type: Control
-            scope: "#/properties/soggetto/properties/given_name"
-          - type: Control
-            scope: "#/properties/soggetto/properties/family_name"
-
-      - type: HorizontalLayout
-        elements:
-          - type: Control
-            label: Nato a
-            scope: "#/properties/soggetto/properties/date_of_birth"
-          - type: Control
-            scope: "#/properties/soggetto/properties/birth_place/properties/city"
-          - type: Control
-            scope: "#/properties/soggetto/properties/birth_place/properties/province"
-      - type: Group
-        label: Residente in
-        elements:
-        - type: Control
-          label: Via
-          scope: "#/properties/richiedente/properties/residence/properties/street"
-        - type: Control
-          scope: "#/properties/richiedente/properties/residence/properties/city"
-        - type: Control
-          scope: "#/properties/richiedente/properties/residence/properties/province"
-   
 - type: Markdown
   scope: ""
   text: >-
     # CHIEDE
 
-    ai sensi dell’art. 22 e seguenti della L. 241/90 e successive modifiche e integrazioni di potere esercitare il proprio
-    diritto d’accesso ai documenti amministrativi
-    per i  seguenti documenti: (specificare ove possibile dettagliatamente i documenti e gli atti
-       sui quali si intende
-      esercitare l’accesso specificando ogni elemento disponibile
-       per l’individuazione del documento/atto)
-
-- type: Control
-  scope: "#/properties/tipo_richiesta"
-  
-- type: Control
-  scope: "#/properties/documenti_richiesti"
-
-- type: Control
-  scope: "#/properties/ricevere_via"
+    ai sensi dell'art. 9, della legge 30 aprile 1999, n. 120, di essere inserito nell'Albo unico delle
+    persone idonee all'Ufficio di SCRUTATORE DI SEGGIO ELETTORALE.
 
 - type: Markdown
+  label: Dichiarazione
   scope: ""
   text: >-
+
     # DICHIARA
 
-    - consapevole che ai sensi dell’articolo 76 del D.P.R. n. 445/2000 chiunque rilasci dichiarazioni mendaci, 
-    formi atti falsi o ne faccia uso nei casi previsti dalla stessa normativa, 
-    è punito ai sensi del codice penale e delle leggi speciali in materia
-    e che i benefici eventualmente conseguiti in seguito al provvedimento emanato sulla base di dichiarazioni non veritiere,
-    decadono).
-    
-    - Impegnandosi a pagare il corrispettivo dovuto secondo quanto stabilito con Deliberazione di Giunta Comunale
-    n.100/2015
-    
-    - che, ai sensi del comma 1, lett. b) dell’art. 22 della legge 7/8/1990 n. 241, sussiste il seguente interesse diretto,
-    concreto e attuale inerente ad una situazione giuridicamente tutelata e collegata al documento al quale è chiesto
-    l’accesso
+    - di essere iscritta/o nelle liste elettorali del comune di Bugliano
+    - di non rientrare in alcuna delle
+      categorie previste dagli articoli 38 del T.U. 361/1957 e 23 del T.U. 570/1960;
+    - di aver assolto gli obblighi scolastici:
 
-    
+      * conseguimento della licenza elementare, per i nati entro il 1/1/1952
+      * conseguimento del diploma di licenza della scuola media, per i nati successivamente
+
 - type: Control
-  scope: "#/properties/richiesta_interesse"
-
-
-
+  scope: "#/properties/obblighi_scolastici"
+    
 - type: Markdown
   scope: ""
   text: |-
+    # Autorizza
+    
+    l’uso dei numeri telefonici e/o posta elettronica forniti
+    per eventuali comunicazioni da parte dell’Ufficio Elettorale
+
     # Allega
     
     - copia del documento di riconoscimento;
-    - l'eventuale documentazione indicata;
 
-    Si allega ai sensi della Delibera G.M.n.100/2015 ( fino a 1 anno: diritti di ricerca= € 0,00) :
-       copia della reversale del pagamento di € 2,00 per diritti di ricerca (pratiche oltre 1 e fino a 5 anni prima della
-      richiesta di accesso)
-       copia della reversale del pagamento di € 5,00 per diritti di ricerca (pratiche oltre 5 e fino a 20 anni prima della
-      richiesta di accesso)
-       copia della reversale del pagamento di € 10,00 per diritti di ricerca (pratiche oltre 20 anni prima della richiesta di
-      accesso)
-
-    Ai sensi dell’art. 38 del D.P.R. 445 del 28 dicembre 2000, la dichiarazione:
-      - è sottoscritta dall’interessato alla presenza del dipendente addetto 
-      - ovvero sottoscritta e presentata o inviata anche per fax o via telematica 
-        unitamente a copia fotostatica non autenticata di un documento di riconoscimento del sottoscrittore. 
-        La dichiarazione inviata per via telematica è valida se sottoscritta mediante la firma digitale 
-        o quando il sottoscrittore è identificato dal sistema informatico con l’uso della carta di identità elettronica.
-        
 - type: Markdown
   scope: ""
   text: |-
 
     ## INFORMATIVA AI SENSI DELL’ART. 13 DEL D.Lgs. 196/2003
     
-    Il Comune di BUGLIANO, in qualità di titolare del trattamento dei dati personali, La informa che i dati raccolti attraverso la compilazione del modulo per la
-    dichiarazione sostitutiva di certificazione o di atto di notorietà vengono trattati per scopi strettamente inerenti alla verifica delle condizioni per il
-    riconoscimento del diritto d’accesso, secondo quanto previsto dalle disposizioni di legge e regolamentari vigenti.
-    I dati possono essere comunicati ai soggetti istituzionali nei soli casi previsti dalle disposizioni di legge o di regolamento, o a terzi interessati nel rispetto
-    della normativa disciplinante l’accesso. I dati da Lei forniti verranno trattati sia utilizzando mezzi elettronici o comunque automatizzati, sia mezzi cartacei.
-    I dati da Lei forniti potranno essere utilizzati al fine della verifica dell’esattezza e veridicità delle dichiarazioni rilasciate, nelle forme e nei limiti previsti dal
-    DPR. 445/2000 (cd. T.U. sulla documentazione amministrativa, recante norme sulla autocertificazione). Le ricordiamo che, in qualità di interessato, Lei può
-    esercitare in qualsiasi momento i diritti previsti dall’art. 7 del Codice Privacy, rivolgendosi al Dirigente Responsabile con domicilio in Corso della Repubblica
-    116 – 04100 Latina oppure all’incaricato del trattamento, specificatamente designato
+    Informativa ai sensi dell’art. 13 D. Lgs. 30/06/2003 n. 196: I dati sopra indicati sono prescritti
+    dalle disposizioni vigenti ai fini del procedimento per il quale sono richiesti e verranno utilizzati,
+    anche con strumenti informatici, esclusivamente per tale scopo.
 
-
-      Data: _ _ _ _ _ _ _ _ _ _                        Firma leggibile: _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+    Data: _ _ _ _ _ _ _ _ _ _                        Firma leggibile: _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+_meta:
+  data:
+    destinatario: Al sindaco del comune di Bugliano
+    richiedente: {}
+    
