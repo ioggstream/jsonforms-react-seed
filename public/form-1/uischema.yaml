@@ -77,7 +77,7 @@ elements:
       ai sensi dell’art.3 del d.lgs. n. 39/1993
     
 
-    # CHIEDE il rilascio della sottoelencata certificazione
+    # CHIEDE
 
 - type: Group
   elements:
@@ -112,22 +112,12 @@ elements:
             scope: "#/properties/soggetto/properties/birth_place/properties/province"
 
 - type: Group
+  label: Il rilascio della sottoelencata certificazione
   elements:
     - type: HorizontalLayout
-      label: Il rilascio della sottoelencata certificazione
       elements:
       - type: Control
         scope: "#/properties/documento_richiesto"
-
-      - type: Control
-        scope: "#/properties/documento_richiesto_altro"
-        label: Altro documento
-        rule:
-          effect: SHOW
-          condition:
-            scope: "#/properties/documento_richiesto"
-          schema:
-            const: altro
 
 - type: Markdown
   scope: ""
@@ -163,14 +153,8 @@ elements:
             const: "bollo"
       elements:
       - type: Control
-        scope: "#/properties/dichiarazione/properties/esenzione_notifica_atti_giudiziari"
-
-      - type: Control
-        scope: "#/properties/dichiarazione/properties/esenzione_recupero_crediti_difensore_ufficio"
-
-      - type: Control
         label: Indicare motivo di esenzione (Vedi tabella allegata)
-        scope: "#/properties/dichiarazione/properties/esenzione_altro"
+        scope: "#/properties/dichiarazione/properties/motivo_esenzione"
 
 - type: Markdown
   scope: ""
@@ -183,4 +167,9 @@ elements:
 
 
     Data: _ _ _ _ _ _ _ _ _ _                        Firma leggibile: _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  
+_meta:
+  data:
+    soggetto: {}
+    richiedente: {}
+    dichiarazione: {}
+          

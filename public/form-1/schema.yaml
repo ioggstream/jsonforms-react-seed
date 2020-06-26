@@ -14,11 +14,17 @@ properties:
         - "A nome di"
         default: "Per il sottoscritto"
     documento_richiesto:
-        type: string
+      oneOf:  
+      - type: string
+        title: Documento selezionato
         enum:
         - "residenza"
         - "stato di famiglia"
-        - "altro"
+        - estratto di nascita
+        - estratto di matrimonio
+        - estratto di morte
+      - type: string
+        title: altro documento
     documento_richiesto_altro:
         type: string
         maxLength: 40
@@ -31,18 +37,13 @@ properties:
                 enum:
                     - bollo
                     - esenzione da bollo
-            esenzione_notifica_atti_giudiziari:
-                type: boolean
-                title: |-
-                    Notifica atti giudiziari  (allegare cartellino professionale avvocato richiedente)
-            esenzione_recupero_crediti_difensore_ufficio:
-                type: boolean
-                title: |-
-                   ai sensi art. 32  d.a. C.P.P.  – recupero crediti difensori d’ufficio
-                    (allegare cartellino professionale  avvocato  richiedente)
-            esenzione_altro:
-                type: string
+            motivo_esenzione:
+              oneOf:
+              - type: string
+                title: Lista motivi di esenzione
                 enum:
+                - Notifica atti giudiziari  (allegare cartellino professionale avvocato richiedente)
+                - ai sensi art. 32  d.a. C.P.P.  – recupero crediti difensori d’ufficio (allegare cartellino professionale  avvocato  richiedente)
                 -    ONLUS - art. 27 bis, tabella allegato B)  DPR 642/1972
                 -    SOCIETA' SPORTIVE - art. 8 bis, tabella allegato B)  DPR 642/1972
                 -    PROCESSUALE (certificati da produrre nel procedimento) - art. 18 DPR 30.5.2002, n. 115 e Circ. Agenzia delle entrate, 14.8.2002, n. 70/E
@@ -54,6 +55,8 @@ properties:
                 -    PENSIONE ESTERA - art. 9, tabella allegato B)  DPR 642/1972
                 -    SCAMBIO DI ATTI E DOCUMENTI FRA PP.AA. - art. 16, tabella allegato B) DPR 642/1972
                 -    ALTRO MOTIVO DI ESENZIONE
+              - type: string
+                title: Altri motivi
 
             data:
                 type: string

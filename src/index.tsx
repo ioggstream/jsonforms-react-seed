@@ -19,16 +19,6 @@ const yaml = require("js-yaml");
 const refParser = require("json-schema-ref-parser");
 
 
-// Setup Redux store
-const data = {
-  richiedente: {
-    given_name: "Roberto",
-    family_name: "Polli"
-  },
-  soggetto: {},
-  dichiarazione: {}
-};
-
 const initState: JsonFormsState = {
   jsonforms: {
     cells: materialCells,
@@ -41,7 +31,7 @@ const rootReducer: Reducer<JsonFormsState, AnyAction> = combineReducers({
 });
 const store = createStore(rootReducer, initState, devToolsEnhancer({}));
 
-const p = new URLSearchParams(window.location.search).get("q") || "form-1";
+const p = new URLSearchParams(window.location.search).get("q") || "form-3";
 const schema_url = p + '/schema.yaml'
 const uischema_url = p + '/uischema.yaml'
 
@@ -62,6 +52,7 @@ fetchYaml(schema_url)
       console.log(schema);
       fetchYaml(uischema_url)
         .then((uischema) => {
+          const data = uischema._meta?.data || {};
           store.dispatch(Actions.init(data, schema, uischema));
         });
     });
