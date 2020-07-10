@@ -1,0 +1,95 @@
+#
+# Basata su https://www.lavoro.gov.it/strumenti-e-servizi/Modulistica/Documents/Accesso%20ai%20documenti%20amministrativi/Modello-istanza-241.pdf
+#
+label: Richiesta certificazione anagrafica online
+type: VerticalLayout
+elements:
+- type: Markdown
+  label: Test label
+  scope: ""
+  text: |-
+    # DICHIARAZIONE SOSTITUTIVA DI CERTIFICAZIONE
+    ## ai sensi art. 46 D.P.R.28 dicembre 2000 n. 445
+
+     per accedere al “Campo Estate 2020” che si terrà presso Oratorio “Don Bosco” Latina, e 
+    # PATTO DI RESPONSABILITA' RECIPROCO 
+
+
+- $ref: "uidefinitions.yaml#/uidefinitions/Padre"
+- $ref: "uidefinitions.yaml#/uidefinitions/Madre"
+
+- type: Group
+  label: Documento Madre
+  elements:  
+  - type: HorizontalLayout
+    elements:
+    - type: Control
+      scope: "#/properties/documento_madre/properties/tipo"
+    - type: Control
+      scope: "#/properties/documento_madre/properties/numero"
+  - type: HorizontalLayout
+    elements:  
+    - type: Control
+      scope: "#/properties/documento_madre/properties/rilasciato_il"
+    - type: Control
+      scope: "#/properties/documento_madre/properties/rilasciato_da"
+
+
+- type: Group
+  label: Documento Padre
+  elements:  
+  - type: HorizontalLayout
+    elements:
+    - type: Control
+      scope: "#/properties/documento_padre/properties/tipo"
+    - type: Control
+      scope: "#/properties/documento_padre/properties/numero"
+  - type: HorizontalLayout
+    elements:  
+    - type: Control
+      scope: "#/properties/documento_padre/properties/rilasciato_il"
+    - type: Control
+      scope: "#/properties/documento_padre/properties/rilasciato_da"
+
+      
+- type: Markdown
+  scope: ""
+  text: |-
+    # bla
+    
+- type: VerticalLayout
+  elements:
+  - type: Control
+    scope: >-
+      #/properties/podesta
+
+- type: Markdown
+  scope: ""
+  text: |-
+
+    Dichiaro di essere informato/a, ai sensi e per gli effetti di cui all’art. 13 del D. Lgs. 196/2003 e s.m.i., che i dati personali, di
+    cui alla presente istanza, sono richiesti obbligatoriamente ai fini del procedimento. Gli stessi, trattati anche con strumenti
+    informatici, non saranno diffusi ma potranno essere comunicati soltanto a soggetti pubblici interessati al procedimento,
+    nonché agli altri soggetti, in conformità alle vigenti disposizioni in materia di accesso ai dati. L’interessato potrà
+    esercitare i diritti di cui all’ art. 7 del D. Lgs 196/20
+
+
+- type: Markdown
+  scope: ""
+  text: |-
+    # Allega
+    
+      - copia del documento di riconoscimento;
+      - l'eventuale documentazione indicata;
+
+      Si allega alla presente la somma di euro in marche da bollo, quale rimborso del costo di 
+      riproduzione per n. fogli (art. 25, legge 241/90)
+  
+      La presa visione dei documenti è gratuita. Il rilascio di copie dei documenti è subordinato 
+      al pagamento di € 0,26 in marche da bollo ogni
+
+      due facciate riprodotte (€ 0,26 per il rilascio da una a due facciate; € 0,52 da tre a quattro; ecc.)
+
+
+    Data: _ _ _ _ _ _ _ _ _ _                        Firma leggibile: _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  
