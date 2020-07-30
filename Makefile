@@ -11,14 +11,15 @@ endif
 clean:
 	rm package-lock.json yarn.lock -f
 	# rm node_modules -rf
+	git checkout -- tsconfig.json
 
 setup:
-	yarn install
+	npm install
 	npm run build
 
 webpack:
-	yarn add -D webpack webpack-cli
-	yarn add -D typescript ts-loader source-map-loader
+	npm install --save-dev webpack webpack-cli
+	npm install --save-dev typescript ts-loader source-map-loader
 	npx webpack || true
 
 gh-pages: setup

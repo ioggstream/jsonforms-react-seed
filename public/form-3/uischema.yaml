@@ -10,19 +10,17 @@ elements:
   text: |-
     # RICHIESTA DI ISCRIZIONE ALL'ALBO DEGLI SCRUTATORI
 
+    ### Dichiarazioni sostitutive rese ai sensi degli art. 46 e 47 del D.P.R. n. 445/2000
 
 
-- type: Group
-  label: Ente destinatario
-  elements:
-    - type: Control
-      scope: "#/properties/destinatario"
+
+- type: Control
+  label: Al Sindaco del comune di
+  scope: "#/properties/destinatario"
 
 - type: Markdown
   scope: ""
   text: |-
-    ### Dichiarazioni sostitutive rese ai sensi degli art. 46 e 47 del D.P.R. n. 445/2000
-
     Consapevole:
     - delle sanzioni previste dall’articolo 76 del D.P.R. n. 445/2000
 
@@ -73,23 +71,28 @@ elements:
     ai sensi dell'art. 9, della legge 30 aprile 1999, n. 120, di essere inserito nell'Albo unico delle
     persone idonee all'Ufficio di SCRUTATORE DI SEGGIO ELETTORALE.
 
-- type: Markdown
-  label: Dichiarazione
-  scope: ""
-  text: >-
+- type: Group
+  label: Dichiara
+  elements:
+  - type: Markdown
+    scope: ""
+    text: >-
 
-    # DICHIARA
+      - di essere residente nel suddetto comune
+      
+      - iscritta/o nelle liste elettorali del suddetto comune
 
-    - di essere iscritta/o nelle liste elettorali del comune di Bugliano
-    - di non rientrare in alcuna delle
-      categorie previste dagli articoli 38 del T.U. 361/1957 e 23 del T.U. 570/1960;
-    - di aver assolto gli obblighi scolastici:
+      - di non rientrare in alcuna delle
+        categorie previste dagli articoli 38 del T.U. 361/1957 e 23 del T.U. 570/1960;
 
-      * conseguimento della licenza elementare, per i nati entro il 1/1/1952
-      * conseguimento del diploma di licenza della scuola media, per i nati successivamente
+      - di aver assolto gli obblighi scolastici:
 
-- type: Control
-  scope: "#/properties/obblighi_scolastici"
+        * conseguimento della licenza elementare, per i nati entro il 1/1/1952
+        * conseguimento del diploma di licenza della scuola media, per i nati successivamente
+
+
+  - type: Control
+    scope: "#/properties/obblighi_scolastici"
     
 - type: Markdown
   scope: ""
@@ -106,16 +109,17 @@ elements:
 - type: Markdown
   scope: ""
   text: |-
-
     ## INFORMATIVA AI SENSI DELL’ART. 13 DEL D.Lgs. 196/2003
     
     Informativa ai sensi dell’art. 13 D. Lgs. 30/06/2003 n. 196: I dati sopra indicati sono prescritti
     dalle disposizioni vigenti ai fini del procedimento per il quale sono richiesti e verranno utilizzati,
     anche con strumenti informatici, esclusivamente per tale scopo.
 
-    Data: _ _ _ _ _ _ _ _ _ _                        Firma leggibile: _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+    Data: _ _ _ _ _ _ _ _ _ _                        
+    
+    Firma leggibile: _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 _meta:
   data:
-    destinatario: Al sindaco del comune di Bugliano
-    richiedente: {}
+    destinatario: Bugliano
+    richiedente: { "birth_place": {}, "residence": {}, "address": {}}
     
