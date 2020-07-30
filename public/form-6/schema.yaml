@@ -1,0 +1,59 @@
+type: object
+required:
+    - genitori
+    - minore
+properties:
+    genitori:
+      type: array
+      items:
+        $ref: "definitions.yaml#/schemas/Parent"
+      minItems: 1
+      maxItems: 2
+    minore:
+        $ref: "definitions.yaml#/schemas/Person"
+    firma_singola:
+        type: boolean
+        default: false
+    podesta:
+        oneOf:
+        - type: string
+          title: congiunta
+          const: congiunta
+        - type: object
+          title: esclusiva
+          properties:
+            atto:
+                title: giusto provvedimento da allegare in copia
+                $ref: "definitions.yaml#/schemas/IdentityDocument"
+    contatti:
+        type: array
+        minItems: 1
+        items:
+            properties:
+                cellulare:
+                    type: string
+    allergie:
+        type: array
+        items:
+            title: Aggiungi un allergia
+            type: object
+            properties:
+                allergia:
+                    type: string
+                sintomi:
+                    type: string
+                farmaci:
+                    type: string
+                somministrazione:
+                    type: string
+    patologie:
+        type: array
+        items:
+            type: object
+            properties:
+                patologia:
+                    type: string
+                farmaci:
+                    type: string
+                somministrazione:
+                    type: string

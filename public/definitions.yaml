@@ -509,4 +509,52 @@ schemas:
         title: stato
         x-url: https://w3id.org/italia/onto/CLV/Country
         type: string
-  
+  Parent:
+    type: object
+    required:
+    - given_name
+    - family_name
+    - date_of_birth
+    properties:
+      given_name:
+        title: nome
+        type: string  
+      family_name:
+        title: cognome
+        type: string
+      date_of_birth:
+        title: nato il
+        format: date
+        type: string
+      birth_place:
+        $ref: 'definitions.yaml#/schemas/BirthPlace'
+      residence:
+        $ref: 'definitions.yaml#/schemas/Residence'
+      email:
+        type: string
+      phone:
+        type: string
+      document:
+        $ref: 'definitions.yaml#/schemas/IdentityDocument'
+  PersonShort:
+    externalDocs:
+      url: https://w3id.org/italia/onto/CPV
+    required:
+    - given_name
+    - family_name
+    - date_of_birth
+    properties:
+      given_name:
+        title: nome
+        type: string  
+      family_name:
+        title: cognome
+        type: string
+      date_of_birth:
+        title: nato il
+        format: date
+        type: string
+      birth_place:
+        $ref: 'definitions.yaml#/schemas/BirthPlace'
+      tax_code:
+        $ref: 'definitions.yaml#/schemas/TaxCode'

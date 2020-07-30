@@ -1,0 +1,72 @@
+type: object
+required:
+    - richiedente
+    - immobile
+    - dichiarazione
+properties:
+    richiedente:
+        $ref: definitions.yaml#/schemas/Person
+    indirizzo_alloggio:
+        $ref: definitions.yaml#/schemas/Residence
+    ospitalita:
+        required:
+        - cessata
+        - ospite
+        properties:
+            cessata:
+                title: la cessata ospitalità
+                type: boolean
+            ospite:
+                title: dati ospite
+                $ref: definitions.yaml#/schemas/PersonShort
+            ospite_da:
+                title: data di inizio
+                type: string
+                format: date
+            ospite_a:
+                title: data di fine
+                type: string
+                format: date
+    privacy:
+        title: |-
+            DICHIARA dichiara di aver preso atto dell'informativa ai sensi
+            dell'art. 13 del D. Lgs. n. 196/2003 "Codice in materia di
+            protezione dei dati personali".
+        type: boolean
+    dichiarazioni:
+        properties:
+            uno:
+                title: |-
+                    DICHIARA che non sono avvenute variazioni significative
+                    rispetto alle condizioni precedentemente autorizzate con il
+                    sopracitato Atto, con particolare riguardo a tipologia dello
+                    scarico; caratteristiche quali-quantitative dei reflui scaricati
+                    (es. aumento n. residenti); ristrutturazione o ampliamento
+                    dell'edificio; sistemi di trattamento liquami; punti di scarico;
+                    attivita' svolta nell'insediamento
+                type: boolean
+            due:
+                title: |-
+                    DICHIARA che non sono avvenute variazioni significative
+                    rispetto alle condizioni precedentemente autorizzate con il
+                    sopracitato Atto, con particolare riguardo a tipologia dello
+                    scarico; caratteristiche quali-quantitative dei reflui scaricati
+                    (es. aumento n. residenti); ristrutturazione o ampliamento
+                    dell'edificio; sistemi di trattamento liquami; punti di scarico;
+                    attivita' svolta nell'insediamento
+                type: boolean
+            tre:
+                title: |-
+                    DICHIARA che non sono avvenute variazioni significative
+                    rispetto alle condizioni precedentemente autorizzate con il
+                    sopracitato Atto, con particolare riguardo a tipologia dello
+                    scarico; caratteristiche quali-quantitative dei reflui scaricati
+                    (es. aumento n. residenti); ristrutturazione o ampliamento
+                    dell'edificio; sistemi di trattamento liquami; punti di scarico;
+                    attivita' svolta nell'insediamento
+                type: boolean
+            
+
+    documento:
+        $ref: definitions.yaml#/schemas/IdentityDocument
+    

@@ -1,0 +1,33 @@
+type: object
+required:
+    - richiedente
+    - dichiarazioni
+    - proprietario
+    - dia
+    - realizzazione
+properties:
+    richiedente:
+        $ref: "definitions.yaml#/schemas/Person"
+    proprietario:
+        type: string
+    dia: 
+        type: string
+    realizzazione:
+        type: string
+    dichiarazioni:
+        title: "che"
+        properties:
+            accessibilita:
+                type: boolean
+                title: |-
+                    l’immobile suddetto presenta in progetto le caratteristiche di accessibilita'
+            
+            adattabilita:
+                type: boolean
+                title: |-
+                    l’immobile suddetto presenta in progetto le caratteristiche di adattabilita'
+            
+            visibilita:
+                type: boolean
+                title: |-
+                    l’immobile suddetto presenta in progetto le caratteristiche di visibilita'

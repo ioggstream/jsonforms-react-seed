@@ -23,44 +23,7 @@ elements:
     - type: Control
       scope: "#/properties/destinatario"
 
-- type: Group
-  label: Il sottoscritto
-  elements:
-  - type: HorizontalLayout
-    elements:
-    - type: Control
-      scope: "#/properties/richiedente/properties/given_name"
-    - type: Control
-      scope: "#/properties/richiedente/properties/family_name"
-
-  - type: HorizontalLayout
-    elements:
-    - type: Control
-      label: Nato il
-      scope: "#/properties/richiedente/properties/date_of_birth"
-    - type: Control
-      label: a
-      scope: "#/properties/richiedente/properties/birth_place/properties/city"
-    - type: Control
-      scope: "#/properties/richiedente/properties/birth_place/properties/province"
-
-  - type: HorizontalLayout
-    label: Residente in
-    elements:
-    - type: Control
-      label: Via
-      scope: "#/properties/richiedente/properties/residence/properties/street"
-    - type: Control
-      scope: "#/properties/richiedente/properties/residence/properties/city"
-    - type: Control
-      scope: "#/properties/richiedente/properties/residence/properties/province"
-
-  - type: HorizontalLayout
-    elements:
-    - type: Control
-      scope: "#/properties/richiedente/properties/email"
-    - type: Control
-      scope: "#/properties/richiedente/properties/phone"
+- $ref: "uidefinitions.yaml#/uidefinitions/Richiedente"
 
 - type: Group
   label: documento

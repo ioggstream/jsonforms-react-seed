@@ -1,0 +1,58 @@
+label: Richiesta Cessazione ospitalità temporanea
+type: VerticalLayout
+elements:
+- type: Markdown
+  label: Test label
+  scope: ""
+  text: |-
+    #  Richiesta Cessazione ospitalità temporanea
+
+- type: Markdown
+  scope: ""
+  text: |-
+    Il/la sottoscritto/a
+
+- $ref: uidefinitions.yaml#/uidefinitions/Richiedente
+
+- type: Markdown
+  scope: ""
+  text: |-
+    Assegnatario dell'alloggio sito in
+- type: Control
+  scope: "#/properties/indirizzo_alloggio"
+
+
+- type: Markdown
+  scope: ""
+  text: |-
+    # comunica
+
+    ai sensi blablabal
+- type: Control
+  scope: "#/properties/ospitalita"
+  
+- type: Markdown
+  scope: ""
+  text: |-
+
+    Dichiaro di essere informato/a, ai sensi e per gli effetti di cui all’art. 13 del D. Lgs. 196/2003 e s.m.i., che i dati personali, di
+    cui alla presente istanza, sono richiesti obbligatoriamente ai fini del procedimento. Gli stessi, trattati anche con strumenti
+    informatici, non saranno diffusi ma potranno essere comunicati soltanto a soggetti pubblici interessati al procedimento,
+    nonché agli altri soggetti, in conformità alle vigenti disposizioni in materia di accesso ai dati. L’interessato potrà
+    esercitare i diritti di cui all’ art. 7 del D. Lgs 196/20
+
+- type: Control
+  scope: "#/properties/privacy"
+- type: Control
+  scope: "#/properties/dichiarazioni"
+
+
+- type: Markdown
+  scope: ""
+  text: |-
+    # Allega
+    
+      - copia del documento di riconoscimento;
+
+    Data: _ _ _ _ _ _ _ _ _ _                        Firma leggibile: _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  

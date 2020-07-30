@@ -173,14 +173,16 @@ const App = ({ store, classes }: AppProps) => {
 
         </header>
       </div>
-      <form action="" method="POST" id="rootform">
-        <Grid
-          container
-          justify={'center'}
-          spacing={1}
-          className={classes.container}
-        >
-          <Grid item sm={6}>
+      <Grid
+        container
+        justify={'center'}
+        spacing={1}
+        className={classes.container}
+      >
+
+        <Grid item sm={6}>
+          <form action="" method="POST" id="rootform">
+
             <div className={classes.demoform} id='form'>
               {store ? (
                 <Provider store={store}>
@@ -196,14 +198,17 @@ const App = ({ store, classes }: AppProps) => {
               </div>
 
             </div>
-          </Grid>
+            <div id="attachments">
+              <img alt="" id="attachment-1" style={{ maxWidth: '100%' }} />
+            </div>
+
+          </form>
+
         </Grid>
 
-        <div id="attachments">
-          <img alt="Attachment 1" id="attachment-1" />
-        </div>
 
-      </form>
+      </Grid>
+
       Allega un file usando il bottone qui sotto.
       <input type="file" id="file-selector" multiple accept=".jpg, .jpeg, .png" onChange={onFileSelector} height="50px" />
 
