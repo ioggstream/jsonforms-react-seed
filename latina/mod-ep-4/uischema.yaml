@@ -1,0 +1,80 @@
+# http://www.comune.latina.it/2011/02/10/dichiarazione-di-conformita-alla-norme-previste-dalla-legge-09011989-n13-e-dm-14061989-n236/
+label: Richiesta rimborso quota laboratori opzionali
+type: VerticalLayout
+elements:
+- type: Markdown
+  label: Test label
+  scope: ""
+  text: |-
+    MOD.EP/4
+
+            Al Comune di Latina
+            Settore Urbanistica
+            Servizio 11.4 – Edilizia Privata
+            SEDE
+    ## Oggetto: Dichiarazione di conformità alla norme previste dalla Legge 09/01/1989,n.13 e D.M. 14/06/1989, n.236.
+
+- type: Group
+  label: Il sottoscritto
+  elements:
+  - type: HorizontalLayout
+    elements:
+    - type: Control
+      scope: "#/properties/richiedente/properties/given_name"
+    - type: Control
+      scope: "#/properties/richiedente/properties/family_name"
+
+  - type: HorizontalLayout
+    elements:
+    - type: Control
+      scope: "#/properties/richiedente/properties/tax_code"
+
+- type: Group
+  label: Progettista dell'edificio di proprietà
+  elements:
+    - type: HorizontalLayout
+      elements:
+      - type: Control
+        scope: "#/properties/proprietario"
+        
+- type: Group
+  label: rappresentato nel progetto relativo alla richiesta di Permesso di costruire / D.I.A. del
+  elements:
+    - type: HorizontalLayout
+      elements:
+      - type: Control
+        scope: "#/properties/dia"
+       
+
+- type: Group
+  label: per la realizzazione di
+  elements:
+    - type: HorizontalLayout
+      elements:
+      - type: Control
+        scope: "#/properties/realizzazione"
+
+
+- type: Markdown
+  scope: ""
+  text: |-
+    ai sensi e per gli effetti della Legge n.13 del 09/01/1989 art.1 comma 4° e del D.M.
+    n.236 del 14/06/1989
+    
+    # DICHIARA
+    
+    
+- type: Control
+  scope: "#/properties/dichiarazioni"
+    
+- type: Markdown
+  scope: ""
+  text: |-
+  
+    Data: _ _ _ _ _ _ _ _ _ _
+    
+    
+    Timbro e firma del progettista: _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+_meta:
+  data:
+    richiedente: {}

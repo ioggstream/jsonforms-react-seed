@@ -1,0 +1,146 @@
+label: Dichiarazione Campo Estivo
+type: VerticalLayout
+elements:
+- type: Markdown
+  label: Test label
+  scope: ""
+  text: |-
+    # DICHIARAZIONE SOSTITUTIVA DI CERTIFICAZIONE
+    ## ai sensi art. 46 D.P.R.28 dicembre 2000 n. 445
+
+    per accedere al “Campo Estate 2020” che si terrà presso Oratorio “Don Bosco” Latina, e 
+    # PATTO DI RESPONSABILITA' RECIPROCO 
+
+- type: Markdown
+  scope: ""
+  text: |-
+    Le persone sottoscritte 
+
+- type: Control
+  label: Inserisci i dati dei genitori cliccando su "+"
+  scope: '#/properties/genitori'
+
+- type: Markdown
+  scope: ""
+  text: |-
+    genitore/i del minore
+
+- $ref: 'uidefinitions.yaml#/uidefinitions/Minore'
+
+
+
+      
+- type: Markdown
+  scope: ""
+  text: |-
+    # DICHIARA/NO E AUTOCERTIFICA/NO
+    
+    1- di esercitare la responsabilità genitoriale sul minore in via
+    
+- type: VerticalLayout
+  elements:
+  - type: Control
+    scope: >-
+      #/properties/podesta
+  - type: Control
+    label: 2- Modulo firmato da un solo genitore
+    scope: "#/properties/firma_singola"
+
+
+- type: Group
+  rule:
+    effect: SHOW
+    condition:
+      scope: "#/properties/firma_singola"
+      schema:
+        const: true
+
+  elements:
+  - type: Markdown
+    scope: ""
+    text: |-
+      Di aver effettuato la scelta/richiesta in osservanza
+      delle disposizioni sulla responsabilità genitoriale di cui agli artt. 316, 337 ter e 337 quater del codice civile,
+      che richiedono il consenso di entrambi i genitori.
+      In caso di firma apposta da entrambi i genitori nell’esercizio congiunto della potestà sul proprio figlio minore, il singolo genitore
+      consegnatario della Scheda di Iscrizione/Autorizzazione alla partecipazione del proprio figlio minore al progetto estivo, dichiara, ai
+      sensi di legge e consapevole delle conseguenze penali in caso di rese dichiarazioni false e mendaci, che la firma apposta dal genitore
+      non consegnatario della scheda è autentica.
+
+- type: Group
+  label: Dichiarano inoltre
+  elements:
+  - type: Markdown
+    scope: ""
+    text: |-
+      - di essere a conoscenza delle misure di contenimento del contagio vigenti alla data odierna;
+      - che il minore non ha avuto diagnosi accertata di infezione da COVID-19;
+      -  che il minore non ha avuto contatti a rischio con persone che sono state affette da
+      COVID-19 (familiari, luoghi di lavoro, ecc.);
+      -  che il minore non ha avuto nelle ultime settimane sintomi riferibili all’infezione da COVID19 né convive attualmente con familiari o persone che presentano tale sintomatologia o infezione
+      (tra i quali: temperatura superiore a 37.5, tosse, stanchezza, difficoltà respiratorie, dolori muscolari,
+      diarrea, alterazioni di gusto e olfatto);
+      -  che il minore non ha in corso sintomi riferibili all’infezione da COVID-19 (tra i quali:
+      temperatura superiore a 37.5, tosse, stanchezza, difficoltà respiratorie, dolori muscolari, diarrea,
+      alterazioni di gusto e olfatto) e nel caso si manifestassero si impegna/impegnano a trattenere il proprio
+      figlio/a al domicilio e di informare tempestivamente il pediatra e il gestore del centro estivo o il
+      rappresentante della parrocchia della comparsa dei sintomi o febbre.
+      -  di essere consapevole ed accettare che il proprio figlio/a sia sottoposto a misurazione della
+      febbre con termometro senza contatto prima dell’accesso al centro o all’oratorio e che, in caso di
+      febbre superiore ai 37,5° o di presenza delle altre sintomatologie sopra citate, non potrà essere
+      ammesso al centro o all’oratorio e rimarrà sotto la sua responsabilità;
+      -  di essere consapevole ed accettare che, in caso di insorgenza di febbre superiore a 37,5° o di
+      altra sintomatologia (tra quelle sopra riportate), la Parrocchia provvede all’isolamento immediato
+      del minore e ad informare immediatamente i familiari nonché la Asl;
+      -  di essere consapevole che il proprio figlio/a dovrà rispettare le indicazioni igienico sanitarie
+      all’interno del centro nonché le altre regole finalizzate alla prevenzione del contagio da Covid-19;
+      -  di essere stato adeguatamente informato dagli organizzatori del centro estivo di tutte le 
+      3
+      disposizioni organizzative e igienico sanitarie per la sicurezza e per il contenimento del rischio di
+      diffusione del contagio da Covid-19 ed in particolare:
+      -  delle disposizioni per gli accessi e l’uscita dal centro;
+      -  di non poter accedere, se non per situazioni di comprovata emergenza, all’area del centro
+      estivo, durante lo svolgimento delle attività ed in presenza dei bambini;
+      -  di essere consapevole che nello svolgimento della procedura di triage è tenuto a informare
+      l’operatore all’ingresso sullo stato di salute corrente del bambino o dell’adolescente, in  particolare
+      dichiarando se ha avuto sintomi quali febbre, difficoltà, respiratorio o congiuntivite
+
+- type: Group
+  label: Dichiarano inoltre
+  elements:
+    - type: Control
+      label: |-
+        Che il minore soffre delle seguenti allergie e/o intolleranze alimentari, 
+        di cui si indicano i sintomi ed il trattamento che si rende necessario
+      scope: "#/properties/allergie"
+
+- type: Markdown
+  scope: ""
+  text: |-
+
+    Dichiaro di essere informato/a, ai sensi e per gli effetti di cui all’art. 13 del D. Lgs. 196/2003 e s.m.i., che i dati personali, di
+    cui alla presente istanza, sono richiesti obbligatoriamente ai fini del procedimento. Gli stessi, trattati anche con strumenti
+    informatici, non saranno diffusi ma potranno essere comunicati soltanto a soggetti pubblici interessati al procedimento,
+    nonché agli altri soggetti, in conformità alle vigenti disposizioni in materia di accesso ai dati. L’interessato potrà
+    esercitare i diritti di cui all’ art. 7 del D. Lgs 196/20
+
+
+- type: Markdown
+  scope: ""
+  text: |-
+    # Allega
+    
+      - copia del documento di riconoscimento;
+      - l'eventuale documentazione indicata;
+
+      Si allega alla presente la somma di euro in marche da bollo, quale rimborso del costo di 
+      riproduzione per n. fogli (art. 25, legge 241/90)
+  
+      La presa visione dei documenti è gratuita. Il rilascio di copie dei documenti è subordinato 
+      al pagamento di € 0,26 in marche da bollo ogni
+
+      due facciate riprodotte (€ 0,26 per il rilascio da una a due facciate; € 0,52 da tre a quattro; ecc.)
+
+
+    Data: _ _ _ _ _ _ _ _ _ _                        Firma leggibile: _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  
